@@ -1,0 +1,22 @@
+<div class="text-md flex items-center justify-center space-x-4 m-4">
+  <ul class="navigation">
+    <!-- Taxonomy - Categories. -->
+    {{ with .Params.categories }}
+      {{ range . }}
+        <li>
+          <a href="/categories/{{ . | urlize }}">{{ . }} &#9210;</a>
+        </li>
+      {{ end }}
+    {{ end }}
+
+
+    <!-- Taxonomy - Tags. -->
+    {{ with .Params.tags }}
+      {{ range . }}
+        <li>
+          <a href="/tags/{{ . | urlize }}">{{ . }} &#9210;</a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>

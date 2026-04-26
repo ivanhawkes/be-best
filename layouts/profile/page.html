@@ -1,0 +1,24 @@
+{{ define "main" }}
+  {{ range (where hugo.Data.profile.person "profile" .Params.profile) }}
+    <div>
+      <div>
+        <img src="{{ .avatar }}" alt="Circle Image" />
+      </div>
+
+      <div>
+        <div>{{ .name }}</div>
+        <div>{{ .position }}</div>
+
+        <div>{{- partial "/social-media/social-media-small.html" . -}}</div>
+
+        <div>&quot;{{ .description }}&quot;</div>
+      </div>
+    </div>
+  {{ end }}
+
+
+  <!-- Main Content -->
+  <article class="prose flex w-full items-center justify-center">
+    <div>{{ .Content }}</div>
+  </article>
+{{ end }}

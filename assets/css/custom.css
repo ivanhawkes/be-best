@@ -1,0 +1,13 @@
+/* Style the pagination control set. */
+
+.pagination {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;      /* Remove default padding */
+    margin: 0;       /* Remove default margin */
+    background-color: blueviolet;
+}
+
+.pagination li {
+    display: inline-block; /* Align list items horizontally */
+    padding: 0 0.25rem;      /* Add some padding for spacing */
+}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <div class="container mx-auto">
+    <section class="container">
+      {{ .Page.Content }}
+    </section>
+
+    <section
+      class="grid grid-cols-1 space-y-4 space-x-4 md:grid-cols-2 xl:grid-cols-3">
+      {{ range first 12 (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+        {{- partial "/posts/card.html" . -}}
+      {{ end }}
+    </section>
+
+    <nav class="container w-full items-center justify-center">
+      {{ with .Site.Params.social }}
+        {{- partial "/social-media/social-media.html" . -}}
+      {{ end }}
+    </nav>
+  </div>
+{{ end }}

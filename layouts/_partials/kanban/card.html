@@ -1,0 +1,114 @@
+{{ $bannerColour := "bg-card" }}
+{{ $due := time .Params.due }}
+{{ if and (not .Params.completed) .Params.due }}
+  {{ if gt time.Now $due }}
+    {{ $bannerColour = "bg-destructive" }}
+  {{ end }}
+{{ end }}
+
+
+<div class="container w-52 rounded-none border-2 p-2 text-sm">
+  <div
+    class="{{ $bannerColour }} text-md flex h-8 items-center justify-center border-2 bg-accent font-extrabold">
+    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+  </div>
+  <div>
+    <div class="font-bold">
+      {{ .Description }}
+    </div>
+
+    <div>
+      Owner:
+      {{ .Params.author }}
+    </div>
+
+    <div>
+      <time datetime="{{ .PublishDate.Format $.Site.Params.dateFormat }}">
+        Created:
+        {{ .PublishDate.Format $.Site.Params.dateFormatHuman }}
+      </time>
+    </div>
+
+    {{ if gt .Lastmod .PublishDate }}
+      <div>
+        <time datetime="{{ .Lastmod.UTC.Format $.Site.Params.dateFormat }}">
+          Updated:
+          {{ .Lastmod.UTC.Format $.Site.Params.dateFormatHuman }}
+        </time>
+      </div>
+      <div></div>
+    {{ end }}
+
+    {{ with time .Params.due }}
+      <div>
+        <time datetime="{{ .UTC.Format $.Site.Params.dateFormat }}">
+          Due:
+          {{ .UTC.Format $.Site.Params.dateFormatHuman }}
+        </time>
+      </div>
+      <div></div>
+    {{ end }}
+
+
+    <div>
+      Priority:
+      {{ .Params.priority }}
+    </div>
+    <div>
+      Allocated Time:
+      {{ .Params.allocatedtime }}
+    </div>
+    {{ if gt .Params.percent 0 }}
+      <div>
+        <p>Completion:</p>
+        <progress
+          class="h-6 w-full border-1 bg-accent font-bold"
+          value="{{ .Params.percent }}"
+          min="0"
+          max="100">
+          {{ .Params.percent }}%
+        </progress>
+      </div>
+    {{ end }}
+    <div>
+      Dependencies:
+      {{ range .Params.dependencies }}
+        {{ . }}
+      {{ end }}
+    </div>
+    <div>
+      Subtasks:
+      {{ range .Params.subtasks }}
+        {{ . }}
+      {{ end }}
+    </div>
+    <div>
+      Categories:
+      {{ with .GetTerms "categories" }}
+        <ul>
+          {{ range . }}
+            <li>{{ .LinkTitle }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+    <div>
+      Tags:
+      {{ with .GetTerms "tags" }}
+        <ul>
+          {{ range . }}
+            <li>{{ .LinkTitle }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+
+    <div class="line-clamp-4 text-sm">
+      {{ .Summary }}
+    </div>
+  </div>
+  <div
+    class="{{ $bannerColour }} text-md flex h-5 justify-center border-2 bg-accent font-bold">
+    <p>STATUS</p>
+  </div>
+</div>

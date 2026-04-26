@@ -1,0 +1,26 @@
+﻿<head>
+  {{- partial "/meta/meta.html" . -}}
+
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{- partial "/meta/css.html" . -}}
+  {{ end }}
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/img/apple-icon.png" />
+  <link rel="icon" href="/img/favicon.png" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/68d3da0283.js" crossorigin="anonymous"></script>
+
+  <title>{{ .Site.Title }}</title>
+  {{ range .AlternativeOutputFormats }}
+    {{ printf `
+      <link rel=%q type=%q href=%q>` .Rel .MediaType.Type .Permalink | safeHTML
+    }}
+  {{ end }}
+
+  {{ with resources.Get "js/copy-codeblock.js" }}
+    {{ .Publish }}
+    <script src="/js/copy-codeblock.js"></script>
+  {{ end }}
+</head>

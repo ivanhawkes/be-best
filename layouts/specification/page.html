@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{- partial "/navigation/next-prev.html" . -}}
+
+  <article class="flex max-w-full justify-center">
+    <div class="prose">{{ .Content }}</div>
+  </article>
+
+  {{- partial "/navigation/next-prev.html" . -}}
+  {{- partial "/navigation/taxonomy.html" . -}}
+{{ end }}

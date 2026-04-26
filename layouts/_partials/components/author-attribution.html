@@ -1,0 +1,15 @@
+<div class="flex justify-between">
+  <div>
+    <span>By {{ .Params.author }}</span>
+    
+  </div>
+  <div>
+    <span>Published: </span>
+    <time datetime="{{ .PublishDate.Format .Site.Params.dateFormatHuman }}">
+      {{ .PublishDate.Format .Site.Params.dateFormatHuman }}
+    </time>
+  </div>
+  <div>
+    {{- partial "/social-media/social-media-share.html" . -}}
+  </div>
+</div>

@@ -1,0 +1,48 @@
+{{ $bannerColour := "bg-card" }}
+{{ $due := time .Params.due }}
+{{ if and (not .Params.completed) .Params.due }}
+  {{ if gt time.Now $due }}
+    {{ $bannerColour = "bg-destructive" }}
+  {{ end }}
+{{ end }}
+
+
+<div class="container w-52 rounded-none border p-2 text-sm">
+  <div>
+    <div
+      class="{{ $bannerColour }} text-md flex h-8 items-center justify-center border bg-accent font-extrabold">
+      <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    </div>
+    <div>
+      <div class="font-bold">
+        {{ .Description }}
+      </div>
+
+      <div class="line-clamp-4 text-sm">
+        {{ .Summary }}
+      </div>
+
+      <div>
+        Priority:
+        {{ .Params.priority }}
+      </div>
+
+      <div>Allocated Time: {{ .Params.allocatedtime }} hours</div>
+
+      {{ if gt .Params.percent 0 }}
+        <div>
+          <progress
+            class="h-6 w-full border bg-accent font-bold"
+            value="{{ .Params.percent }}"
+            min="0"
+            max="100"></progress>
+        </div>
+      {{ end }}
+
+    </div>
+    <div
+      class="{{ $bannerColour }} text-md flex h-5 justify-center border bg-accent font-bold">
+      <p>{{ .Params.author }}</p>
+    </div>
+  </div>
+</div>

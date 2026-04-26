@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{- partial "/components/hero-image" . -}}
+
+  <div>
+    {{- partial "/components/author-attribution" . -}}
+  </div>
+
+  <h1>{{ .Page.Title }}</h1>
+
+  <div>
+    <article class="prose flex w-full items-center justify-center">
+      <div>{{ .Content }}</div>
+    </article>
+  </div>
+
+  {{- partial "/navigation/related.html" . -}}
+{{ end }}

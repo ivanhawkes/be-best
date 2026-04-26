@@ -1,0 +1,12 @@
+<p>CAROUSEL</p>
+<!-- Carousel for our page images. -->
+
+{{ range .Resources.ByType "image" }}
+  {{ with .Resize "600x" }}
+    <img
+      src="{{ .RelPermalink }}"
+      width="{{ .Width }}"
+      height="{{ .Height }}"
+      alt="" />
+  {{ end }}
+{{ end }}
