@@ -5,15 +5,9 @@
   <body class="bg-background text-foreground">
     {{- partial "/page/header.html" . -}}
 
-    <div class="mx-auto flex w-full columns-2">
-      <div class="w-64">
-        {{- partial "/page/sidebar.html" . -}}
-      </div>
-
-      <main class="mx-auto w-full max-w-2xl flex-auto">
-        {{- block "main" . }}{{- end }}
-      </main>
-    </div>
+    <main class="mx-auto w-full max-w-2xl flex-auto">
+      {{- block "main" . }}{{- end }}
+    </main>
 
     {{- partial "/page/footer.html" . -}}
   </body>

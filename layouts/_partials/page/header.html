@@ -1,11 +1,25 @@
-<nav class="mb-6 flex justify-between bg-muted p-2 text-accent-foreground">
-  <div>
-    <a href="{{ $.Site.BaseURL }}"><i class="fa-sharp fa-solid fa-house"></i>&nbsp;Home</a>
-  </div>
-  <div class="align-middle">
-    <a href="{{ $.Site.BaseURL }}">IVAN HAWKES' PERSONAL BLOG</a>
-  </div>
-  <div>
-    {{/*  <a href="{{ $.Site.BaseURL }}"><i class="fa-solid fa-circle-half-stroke"></i></i></a>      */}}
-  </div>
+<nav class="mb-6 flex bg-primary p-2 text-accent-foreground">
+  <ul class="navigation">
+
+  <li>
+      <a class="" href="{{ $.Site.BaseURL }}">
+        <i class="fa-solid fa-home"></i>
+        <span>Home</span>
+      </a>
+  </li>
+
+  {{/*  <pre>{{ debug.Dump .Site.Menus.main }}</pre>  */}}
+
+  {{ range .Site.Menus.main }}
+
+  {{/*  <pre>{{ debug.Dump . }}</pre>  */}}
+
+  <li>
+        <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
+        <i class="fa-solid {{ .Params.icon }}"></i>
+        {{ .Name }}
+      </a>
+    </li>
+  {{ end }}
+  </ul>
 </nav>
