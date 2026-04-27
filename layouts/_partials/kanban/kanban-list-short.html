@@ -6,13 +6,13 @@
     {{ $sorted := sort $kanban "Path" "asc" }}
 
     {{ with $sorted}}
-    <table class="w-full">
-        <tr>
-            <th>Id:</th>
-            <th>Name:</th>
-            <th>Summary:</th>
-            <th>Due:</th>
-        </tr>
+        <table class="w-full">
+            <tr>
+                <th>Id:</th>
+                <th>Name:</th>
+                <th>Summary:</th>
+                <th>Due:</th>
+            </tr>
 
         {{ range . }}
             {{ $basepath := path.BaseName .Path }}

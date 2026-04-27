@@ -1,14 +1,14 @@
   <!-- Next / Previous. -->
-  <div class="text-md flex items-center justify-between m-4">
-    <div class="text-start">
+  <div class="text-md flex items-center justify-between">
+    <div class="text-start bg-brand-600 rounded-md">
       {{ with .PrevInSection }}
-        <a href="{{ .Permalink }}">
+        <a class="" href="{{ .Permalink }}">
           <span>«&NonBreakingSpace;</span>
           {{ .Title | truncate 32 }}
         </a>
       {{ end }}
     </div>
-    <div class="text-end">
+    <div class="text-end bg-brand-600 rounded-md">
       {{ with .NextInSection }}
         <a href="{{ .Permalink }}">
           {{ .Title | truncate 32 }}&NonBreakingSpace;
