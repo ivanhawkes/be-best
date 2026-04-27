@@ -1,10 +1,9 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: '{{ time.Now.Format "2006-01-02" }}'
+title: ""
+date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 completed:
 type: "kanban"
 description: ""
-summary: ""
 categories: []
 tags: []
 author: "Ivan Hawkes"
@@ -17,3 +16,9 @@ params:
     allocatedtime: 4
     percent: 0
 ---
+
+Provide a short summary of the task here.
+
+<!--more-->
+
+You may provide a more in-depth description of the task here.

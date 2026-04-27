@@ -1,0 +1,33 @@
+<ul>
+    {{ $prefix := .Params.prefix }}
+    {{ $filter := printf ".*/(%s-.*)." .Params.prefix }}
+    {{ $pages := where .Site.RegularPages "Type" "kanban" }}
+    {{ $kanban := where $pages "Path" "like" $filter }}
+    {{ $sorted := sort $kanban "Path" "asc" }}
+
+    {{ with $sorted}}
+        <table class="">
+        <tr>
+            <th>Id:</th>
+            <th>Name:</th>
+            <th>Summary:</th>
+            <th>Due:</th>
+        </tr>
+
+        {{ range . }}
+            {{ $basepath := path.BaseName .Path }}
+            <tr>
+                <td><a href="{{ .RelPermalink }}">{{ $basepath }}</a></td>
+                <td>{{ .Title  | truncate 20 }}</td>
+                <td>{{ .Description | truncate 50 }}</td>
+                <td>{{ .Date.Format .Site.Params.dateFormatHuman }}</td>
+            </tr>
+        {{ end }}
+
+        </table>
+    {{ else }}
+        <p>No tasks were found.</p>
+    {{ end }}
+    
+    {{/*  <pre>{{ debug.Dump $sorted }}</pre>  */}}
+</ul>
