@@ -6,7 +6,7 @@
     {{ $sorted := sort $kanban "Path" "asc" }}
 
     {{ with $sorted}}
-        <table class="">
+    <table class="w-full">
         <tr>
             <th>Id:</th>
             <th>Name:</th>
@@ -17,10 +17,10 @@
         {{ range . }}
             {{ $basepath := path.BaseName .Path }}
             <tr>
-                <td><a href="{{ .RelPermalink }}">{{ $basepath }}</a></td>
-                <td>{{ .Title  | truncate 20 }}</td>
-                <td>{{ .Description | truncate 50 }}</td>
-                <td>{{ .Date.Format .Site.Params.dateFormatHuman }}</td>
+                <td><a href="{{ .RelPermalink }}">{{- $basepath -}}</a></td>
+                <td>{{- .Title  | truncate 20 -}}</td>
+                <td>{{- .Description | truncate 50 -}}</td>
+                <td>{{- .Date.Format .Site.Params.dateFormatHuman -}}</td>
             </tr>
         {{ end }}
 

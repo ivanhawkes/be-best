@@ -148,3 +148,17 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+
+@theme {
+  --color-brand-50: oklch(98.5% 0.1211 42.6);
+  --color-brand-100: oklch(96.7% 0.1211 42.6);
+  --color-brand-200: oklch(92.8% 0.1211 42.6);
+  --color-brand-300: oklch(87.2% 0.1211 42.6);
+  --color-brand-400: oklch(70.7% 0.1211 42.6);
+  --color-brand-500: oklch(55.1% 0.1211 42.6);
+  --color-brand-600: oklch(44.6% 0.1211 42.6);
+  --color-brand-700: oklch(37.3% 0.1211 42.6);
+  --color-brand-800: oklch(27.8% 0.1211 42.6);
+  --color-brand-900: oklch(21% 0.1211 42.6);
+  --color-brand-950: oklch(13% 0.1211 42.6);
+}
