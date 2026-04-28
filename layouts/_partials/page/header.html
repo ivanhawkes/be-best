@@ -8,18 +8,23 @@
       </a>
   </li>
 
-  {{/*  <pre>{{ debug.Dump .Site.Menus.main }}</pre>  */}}
-
   {{ range .Site.Menus.main }}
-
-  {{/*  <pre>{{ debug.Dump . }}</pre>  */}}
-
-  <li>
-        <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
-        <i class="fa-solid {{ .Params.icon }}"></i>
-        {{ .Name }}
-      </a>
-    </li>
+    <li>
+          <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
+          <i class="fa-solid {{ .Params.icon }}"></i>
+          {{ .Name }}
+        </a>
+     </li>
   {{ end }}
-  </ul>
+
+  {{ range .Site.Menus.development }}
+    <li>
+          <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
+          <i class="fa-solid {{ .Params.icon }}"></i>
+          {{ .Name }}
+        </a>
+     </li>
+  {{ end }}
+
+</ul>
 </nav>

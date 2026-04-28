@@ -5,7 +5,6 @@ type: "specification"
 description: ""
 categories: ["Documentation", "Concept", "Idea"]
 tags: []
-image:
 author: "Ivan Hawkes"
 ---
 

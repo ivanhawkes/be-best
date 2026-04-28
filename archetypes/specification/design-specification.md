@@ -2,14 +2,13 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: "specification"
-description: "Test Specification"
+description: "Design Specification"
 categories: ["Documentation"]
 tags: []
-image:
 author: "Ivan Hawkes"
 ---
 
-# Test Specification
+# Design Specification
 
 Some text.
 

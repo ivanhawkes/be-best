@@ -1,13 +1,13 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: ""
+title: "{{ replace .Name "-" " " | title }}"
 description: ""
+date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
+lastmod:
+completed:
 categories: []
 tags: []
-image:
-imagecaption:
-author: "Ivan Hawkes"
+author: ""
 ---
 
 # Bold header

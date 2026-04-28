@@ -14,8 +14,8 @@ params:
     priority: 550
     allocatedtime: 1
     percent: 0
+    depends-on: []
     references: []
-    dependencies: []
 ---
 
 Please provide a brief summary of the task.

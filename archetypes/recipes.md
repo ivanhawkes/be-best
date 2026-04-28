@@ -5,7 +5,6 @@ type: "recipe"
 description: ""
 categories: []
 tags: []
-image:
 imagecaption:
 author: "Ivan Hawkes"
 ---
