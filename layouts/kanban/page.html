@@ -3,5 +3,10 @@
     <p>KANBAN: PAGE</p>
 
     {{- partial "/kanban/card.html" . -}}
+
+    <article class="prose">
+      {{ .Content }}
+    </article>
+
   </div>
 {{ end }}

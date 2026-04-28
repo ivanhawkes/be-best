@@ -1,6 +1,6 @@
 ---
 type: "kanban"
-title: "No Title"
+title: "{{ replace .Name "-" " " | title }}"
 description: "No Description"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 lastmod:
@@ -9,7 +9,9 @@ categories: []
 tags: []
 author: ""
 params:
+    stage: story
     status: pending
+    sprint: 
     due:
     priority: 550
     allocatedtime: 1
