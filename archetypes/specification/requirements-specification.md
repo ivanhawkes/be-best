@@ -4,7 +4,6 @@ date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: "specification"
 description: "Requirements Specification"
 categories: ["Documentation"]
-tags: []
 author: "Ivan Hawkes"
 ---
 

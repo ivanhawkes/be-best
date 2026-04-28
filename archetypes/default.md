@@ -5,8 +5,6 @@ description: ""
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 lastmod:
 completed:
-categories: []
-tags: []
 author: ""
 ---
 

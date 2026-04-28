@@ -3,8 +3,6 @@ title: "{{ replace .Name "-" " " | title }}"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: "recipe"
 description: ""
-categories: []
-tags: []
 imagecaption:
 author: "Ivan Hawkes"
 ---
