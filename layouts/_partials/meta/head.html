@@ -5,12 +5,15 @@
     {{- partial "/meta/css.html" . -}}
   {{ end }}
 
+
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/img/apple-icon.png" />
   <link rel="icon" href="/img/favicon.png" />
 
   <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/68d3da0283.js" crossorigin="anonymous"></script>
+  <script
+    src="https://kit.fontawesome.com/68d3da0283.js"
+    crossorigin="anonymous"></script>
 
   <title>{{ .Site.Title }}</title>
   {{ range .AlternativeOutputFormats }}
@@ -19,8 +22,23 @@
     }}
   {{ end }}
 
-  {{ with resources.Get "js/copy-codeblock.js" }}
-    {{ .Publish }}
-    <script src="/js/copy-codeblock.js"></script>
+  {{/* TypeScript and JavaScript */}}
+  {{ with resources.Get "js/main.ts" }}
+    {{ $opts := dict
+      "minify" (cond hugo.IsDevelopment false true)
+      "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+    }}
+    {{ with . | js.Build $opts }}
+      {{ if hugo.IsDevelopment }}
+        <script src="{{ .RelPermalink }}"></script>
+      {{ else }}
+        {{ with . | fingerprint }}
+          <script
+            src="{{ .RelPermalink }}"
+            integrity="{{ .Data.Integrity }}"
+            crossorigin="anonymous"></script>
+        {{ end }}
+      {{ end }}
+    {{ end }}
   {{ end }}
 </head>
