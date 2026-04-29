@@ -11,14 +11,13 @@ export async function copyCodeToClipboard(elementId: string, buttonId: string) {
   console.log(buttonId.toString())
 
   if (ele != null && btn != null) {
-    //    const innerEle = ele.querySelector(':last-child > .lntd > code')
-    // TODO: This is pretty brittle. It relies on the structure of the code block
-    // being exactly as it is. Maybe we should add a specific class to the inner
-    // code element to make this more robust?
-
+    // TODO: Check out why this works, even though one table doesn't have a <code> element, 
+    // and the other does. It seems to be the case that when line numbers are enabled, 
+    // Chroma doesn't wrap the code in a <code> element, but when line numbers are disabled,
+    // it does. This is a bit weird, but we'll just handle both cases here.
     const innerEle = ele.querySelector(':last-child > .chroma > code') as HTMLElement | null  
-    console.log(innerEle)
 
+    // TODO: Use an if else for this instead of an early out.
     if (innerEle == null) {
       console.log(
         "Failed to copy the code block. Couldn't find the inner code element."
@@ -26,7 +25,13 @@ export async function copyCodeToClipboard(elementId: string, buttonId: string) {
       return
     }
 
-    const codeToCopy = innerEle.innerText || innerEle.textContent || ''
+    // We're just going to concatenate the text content of all the 
+    // child elements of the code block.
+    let codeToCopy : string = ''
+    for (const child of innerEle.children) {
+      codeToCopy = codeToCopy + (child.textContent || '')
+    }
+
     try {
       const result = await navigator.permissions.query({
         // NOTE: This is quiet TS hack to get around the fact that 'clipboard-write' is
