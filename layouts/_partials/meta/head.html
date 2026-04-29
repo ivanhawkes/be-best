@@ -5,10 +5,9 @@
     {{- partial "/meta/css.html" . -}}
   {{ end }}
 
-
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/img/apple-icon.png" />
-  <link rel="icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/img/apple-icon.png">
+  <link rel="icon" href="/img/favicon.png">
 
   <!-- Font Awesome -->
   <script
@@ -27,9 +26,11 @@
     {{ $opts := dict
       "minify" (cond hugo.IsDevelopment false true)
       "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+      "format" "esm"
     }}
     {{ with . | js.Build $opts }}
       {{ if hugo.IsDevelopment }}
+        <p>IN DEV</p>
         <script src="{{ .RelPermalink }}"></script>
       {{ else }}
         {{ with . | fingerprint }}

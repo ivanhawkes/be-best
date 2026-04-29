@@ -85,7 +85,7 @@ may also specify the following parameters:
 
 <div
   x-data
-  class="render-hook-codeblock not-prose bg-light dark:bg-dark relative container mt-6 mb-8 h-80 w-80 sm:w-120 md:w-160 border border-gray-200 font-mono dark:border-gray-800">
+  class="render-hook-codeblock not-prose bg-light dark:bg-dark relative container mt-6 mb-8 w-full sm:w-120 md:w-160 border border-gray-200 font-mono dark:border-gray-800">
   {{- $fileSelectClass := "select-none" }}
 
   {{- if $copy }}
@@ -112,7 +112,7 @@ may also specify the following parameters:
   {{- end }}
 
 
-  <div id="{{ $codeblockId }}" x-ref="code" class="highlight h-80 w-full">
+  <div id="{{ $codeblockId }}" x-ref="code" class="highlight w-full">
     {{- $content := .Inner }}
 
     {{- if $trim }}

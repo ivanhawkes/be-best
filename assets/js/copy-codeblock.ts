@@ -3,23 +3,48 @@
 // block / div and an Id name for ani interactive element that
 // will inform the user the copy has occurred.
 
-export async function copyCodeToClipboard(elementId, buttonId) {
+export async function copyCodeToClipboard(elementId: string, buttonId: string) {
   const ele = document.getElementById(elementId)
   const btn = document.getElementById(buttonId)
+  console.log('ele= ' + elementId + '  btn= ' + buttonId)
+  console.log(elementId.toString())
+  console.log(buttonId.toString())
 
-  if (ele && btn) {
-    const codeToCopy = ele.querySelector(':last-child > .lntd > code').innerText
+  if (ele != null && btn != null) {
+    //    const innerEle = ele.querySelector(':last-child > .lntd > code')
+    // TODO: This is pretty brittle. It relies on the structure of the code block
+    // being exactly as it is. Maybe we should add a specific class to the inner
+    // code element to make this more robust?
+
+    const innerEle = ele.querySelector(':last-child > .chroma > code') as HTMLElement | null  
+    console.log(innerEle)
+
+    if (innerEle == null) {
+      console.log(
+        "Failed to copy the code block. Couldn't find the inner code element."
+      )
+      return
+    }
+
+    const codeToCopy = innerEle.innerText || innerEle.textContent || ''
     try {
       const result = await navigator.permissions.query({
-        name: 'clipboard-write',
+        // NOTE: This is quiet TS hack to get around the fact that 'clipboard-write' is
+        // not yet in the standard PermissionName type. It is supported in browsers,
+        // but TypeScript doesn't know about it yet.
+        // See https://github.com/microsoft/TypeScript/issues/31905
+        name: 'clipboard-write' as PermissionName,
       })
       if (result.state == 'granted' || result.state == 'prompt') {
         await navigator.clipboard.writeText(codeToCopy)
       } else {
         console.log('Permission to write to clipboard not granted.')
       }
-    } catch (err) {
-      console.log(err.message)
+    } catch (error) {
+      console.log(
+        'Failed to copy the code block. Clipboard write permission not granted.'
+      )
+      console.error(error)
     } finally {
       codeWasCopied(btn)
     }
@@ -31,7 +56,7 @@ export async function copyCodeToClipboard(elementId, buttonId) {
 // Interaction to let them know we copied the code for them.
 // TODO: How about an animation?
 
-function codeWasCopied(button) {
+function codeWasCopied(button: HTMLElement) {
   button.blur()
   button.innerText = 'Copied!'
   setTimeout(function () {
