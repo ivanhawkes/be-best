@@ -4,67 +4,65 @@
 // will inform the user the copy has occurred.
 
 export async function copyCodeToClipboard(elementId: string, buttonId: string) {
-  const ele = document.getElementById(elementId)
-  const btn = document.getElementById(buttonId)
-  console.log('ele= ' + elementId + '  btn= ' + buttonId)
-  console.log(elementId.toString())
-  console.log(buttonId.toString())
+  const eleRoot = document.getElementById(elementId)
+  const eleButton = document.getElementById(buttonId)
 
-  if (ele != null && btn != null) {
-    // TODO: Check out why this works, even though one table doesn't have a <code> element, 
-    // and the other does. It seems to be the case that when line numbers are enabled, 
-    // Chroma doesn't wrap the code in a <code> element, but when line numbers are disabled,
-    // it does. This is a bit weird, but we'll just handle both cases here.
-    const innerEle = ele.querySelector(':last-child > .chroma > code') as HTMLElement | null  
+  if (eleRoot != null && eleButton != null) {
+    let eleInner: HTMLElement | null
 
-    // TODO: Use an if else for this instead of an early out.
-    if (innerEle == null) {
-      console.log(
+    // Query is slightly different if the code block is inside a table.
+    const isTables = eleRoot.querySelector<HTMLElement>('table')
+    if (isTables) {
+      eleInner = eleRoot.querySelector<HTMLElement>('.lntd:last-child code')
+    } else {
+      eleInner = eleRoot.querySelector<HTMLElement>('code')
+    }
+
+    // Make sure we found something.
+    if (eleInner != null) {
+      console.log(eleInner)
+
+      // We're just going to concatenate the text content of all the
+      // child elements of the code block.
+      let codeToCopy: string = ''
+      for (const child of eleInner.children) {
+        codeToCopy = codeToCopy + (child.textContent || '')
+      }
+
+      //
+      writeToClipboard(codeToCopy, eleButton)
+    } else {
+      console.error(
         "Failed to copy the code block. Couldn't find the inner code element."
       )
-      return
-    }
-
-    // We're just going to concatenate the text content of all the 
-    // child elements of the code block.
-    let codeToCopy : string = ''
-    for (const child of innerEle.children) {
-      codeToCopy = codeToCopy + (child.textContent || '')
-    }
-
-    try {
-      const result = await navigator.permissions.query({
-        // NOTE: This is quiet TS hack to get around the fact that 'clipboard-write' is
-        // not yet in the standard PermissionName type. It is supported in browsers,
-        // but TypeScript doesn't know about it yet.
-        // See https://github.com/microsoft/TypeScript/issues/31905
-        name: 'clipboard-write' as PermissionName,
-      })
-      if (result.state == 'granted' || result.state == 'prompt') {
-        await navigator.clipboard.writeText(codeToCopy)
-      } else {
-        console.log('Permission to write to clipboard not granted.')
-      }
-    } catch (error) {
-      console.log(
-        'Failed to copy the code block. Clipboard write permission not granted.'
-      )
-      console.error(error)
-    } finally {
-      codeWasCopied(btn)
     }
   } else {
-    console.log("Failed to copy the code block. Id's weren't found.")
+    console.error(
+      "Failed to copy the code block. One or more elements weren't found by their Id's."
+    )
   }
+}
+
+function writeToClipboard(newClip: string, eleButton: HTMLElement) {
+  navigator.clipboard.writeText(newClip).then(
+    () => {
+      // Clipboard successfully set.
+      codeCopySuccessful(eleButton)
+    },
+    () => {
+      // Clipboard write failed.
+      console.error('Failed to write to the clipboard.')
+    }
+  )
 }
 
 // Interaction to let them know we copied the code for them.
 // TODO: How about an animation?
 
-function codeWasCopied(button: HTMLElement) {
-  button.blur()
-  button.innerText = 'Copied!'
+function codeCopySuccessful(eleButton: HTMLElement) {
+  eleButton.blur()
+  eleButton.innerText = 'Copied!'
   setTimeout(function () {
-    button.innerText = 'Copy'
+    eleButton.innerText = 'Copy'
   }, 2000)
 }

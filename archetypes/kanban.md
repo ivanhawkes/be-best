@@ -6,13 +6,15 @@ date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 lastmod:
 author: ""
 params:
-  completed: null
+  sprint: null
   stage: story
-  status: story
+  status: pending
+  estimatedtime: 1
+  actualtime: 0
+  completed: null
   sprint: null
   due:
   priority: 550
-  allocatedtime: 1
   percent: 0
   depends-on: []
   references: []

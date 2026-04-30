@@ -27,7 +27,8 @@
         {{ .Params.priority }}
       </div>
 
-      <div>Allocated Time: {{ .Params.allocatedtime }} hours</div>
+      <div>Estimated Time: {{ .Params.estimatedtime }} hours</div>
+      <div>Estimated Time: {{ .Params.actualtime }} hours</div>
 
       {{ if gt .Params.percent 0 }}
         <div>

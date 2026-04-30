@@ -55,8 +55,12 @@
       {{ .Params.priority }}
     </div>
     <div>
-      Allocated Time:
-      {{ .Params.allocatedtime }}
+      Estimated Time:
+      {{ .Params.estimatedtime }}
+    </div>
+    <div>
+      Actual Time:
+      {{ .Params.actualtime }}
     </div>
     {{ if gt .Params.percent 0 }}
       <div>
