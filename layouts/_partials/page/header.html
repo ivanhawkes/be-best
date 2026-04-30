@@ -2,29 +2,29 @@
   <nav class="mb-6 flex bg-brand-700 p-2 text-accent-foreground">
     <ul class="navigation">
       <li>
-        <a href="{{ $.Site.BaseURL }}">
+        <a href="{{- $.Site.BaseURL -}}">
           <i class="fa-solid fa-home"></i>
           <span>Home</span>
         </a>
       </li>
 
-      {{ range .Site.Menus.main }}
+      {{- range .Site.Menus.main -}}
         <li>
-          <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
-            <i class="fa-solid {{ .Params.icon }}"></i>
-            {{ .Name }}
+          <a class="" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+            <i class="fa-solid {{- .Params.icon -}}"></i>
+            {{- .Name -}}
           </a>
         </li>
-      {{ end }}
+      {{- end -}}
 
-      {{ range .Site.Menus.development }}
+      {{- range .Site.Menus.development -}}
         <li>
-          <a class="" href="{{ $.Site.BaseURL }}{{ .URL }}">
-            <i class="fa-solid {{ .Params.icon }}"></i>
-            {{ .Name }}
+          <a class="" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+            <i class="fa-solid {{- .Params.icon -}}"></i>
+            {{- .Name -}}
           </a>
         </li>
-      {{ end }}
+      {{- end -}}
 
     </ul>
   </nav>

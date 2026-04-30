@@ -12,7 +12,7 @@ author: "Ivan Hawkes"
 The purpose of this document is to state quite clearly the idea that will be
 further developed into a project.
 
-## Slugline
+## Logline
 
 Describe in as single sentance the purpose of this project.
 

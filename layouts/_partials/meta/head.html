@@ -14,11 +14,11 @@
     src="https://kit.fontawesome.com/68d3da0283.js"
     crossorigin="anonymous"></script>
 
-  <title>{{ .Site.Title }}</title>
+  <title>{{- .Site.Title -}}</title>
   {{ range .AlternativeOutputFormats }}
-    {{ printf `
+    {{- printf `
       <link rel=%q type=%q href=%q>` .Rel .MediaType.Type .Permalink | safeHTML
-    }}
+    -}}
   {{ end }}
 
   {{/* TypeScript and JavaScript */}}
