@@ -21,19 +21,25 @@
     -}}
   {{ end }}
 
-  {{/* TypeScript and JavaScript */}}
-  {{ with resources.Get "js/main.ts" }}
+  {{/* TypeScript and JavaScript
+  
+  NOTES: Read up on the format option. See if esm is right for our use case.
+  "format" "esm", "iife", "cjs"
+  
+  */}}
+  {{ with resources.Get "js/index.ts" }}
     {{ $opts := dict
       "minify" (cond hugo.IsDevelopment false true)
       "sourceMap" (cond hugo.IsDevelopment "linked" "none")
-      "format" "esm"
+      "format" "iife"
     }}
     {{ with . | js.Build $opts }}
       {{ if hugo.IsDevelopment }}
-        <script src="{{ .RelPermalink }}"></script>
+        <script defer src="{{ .RelPermalink }}"></script>
       {{ else }}
         {{ with . | fingerprint }}
           <script
+            defer
             src="{{ .RelPermalink }}"
             integrity="{{ .Data.Integrity }}"
             crossorigin="anonymous"></script>

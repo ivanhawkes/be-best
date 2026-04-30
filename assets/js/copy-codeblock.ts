@@ -3,25 +3,25 @@
 // block / div and an Id name for ani interactive element that
 // will inform the user the copy has occurred.
 
-export async function copyCodeToClipboard(elementId: string, buttonId: string) {
-  const eleRoot = document.getElementById(elementId)
-  const eleButton = document.getElementById(buttonId)
-
-  if (eleRoot != null && eleButton != null) {
+export async function copyCodeToClipboard(
+  eleCodeblock: HTMLElement,
+  eleButton: HTMLElement
+) {
+  if (eleCodeblock != null && eleButton != null) {
     let eleInner: HTMLElement | null
 
     // Query is slightly different if the code block is inside a table.
-    const isTables = eleRoot.querySelector<HTMLElement>('table')
+    const isTables = eleCodeblock.querySelector<HTMLElement>('table')
     if (isTables) {
-      eleInner = eleRoot.querySelector<HTMLElement>('.lntd:last-child code')
+      eleInner = eleCodeblock.querySelector<HTMLElement>(
+        '.lntd:last-child code'
+      )
     } else {
-      eleInner = eleRoot.querySelector<HTMLElement>('code')
+      eleInner = eleCodeblock.querySelector<HTMLElement>('code')
     }
 
     // Make sure we found something.
     if (eleInner != null) {
-      console.log(eleInner)
-
       // We're just going to concatenate the text content of all the
       // child elements of the code block.
       let codeToCopy: string = ''
@@ -29,7 +29,7 @@ export async function copyCodeToClipboard(elementId: string, buttonId: string) {
         codeToCopy = codeToCopy + (child.textContent || '')
       }
 
-      //
+      // Finally, write the code to the clipboard and update the button text.
       writeToClipboard(codeToCopy, eleButton)
     } else {
       console.error(
@@ -65,4 +65,34 @@ function codeCopySuccessful(eleButton: HTMLElement) {
   setTimeout(function () {
     eleButton.innerText = 'Copy'
   }, 2000)
+}
+
+function wireUpCopyButtons(block: HTMLElement) {
+  // Find the codeblock element within the code block
+  const eleCodeblock = block.querySelector<HTMLElement>('.code')
+  if (!eleCodeblock) {
+    console.error('Copy button not found in code block')
+
+    return
+  }
+
+  // Find the button element within the code block
+  const eleButton = block.querySelector<HTMLElement>('.copy-button')
+  if (!eleButton) {
+    console.error('Copy button not found in code block')
+
+    return
+  }
+
+  eleButton.addEventListener('click', () => {
+    // Call the copy function with the block's ID and the button element
+    copyCodeToClipboard(eleCodeblock, eleButton)
+  })
+}
+
+const codeblocks = document.querySelectorAll<HTMLElement>('.codeblock')
+if (codeblocks.length > 0) {
+  codeblocks.forEach((block) => {
+    wireUpCopyButtons(block)
+  })
 }
