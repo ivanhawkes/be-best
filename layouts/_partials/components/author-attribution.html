@@ -1,11 +1,10 @@
 <div class="flex justify-between">
   <div>
     <span>By {{ .Params.author }}</span>
-    
   </div>
   <div>
-    <span>Published: </span>
-    <time datetime="{{ .PublishDate.Format .Site.Params.dateFormatHuman }}">
+    <span>Published:</span>
+    <time datetime="{{ .PublishDate.Format .Site.Params.dateFormat }}">
       {{ .PublishDate.Format .Site.Params.dateFormatHuman }}
     </time>
   </div>

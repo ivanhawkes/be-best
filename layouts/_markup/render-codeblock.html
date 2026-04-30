@@ -82,24 +82,21 @@ may also specify the following parameters:
 {{ $codeblockId := printf "codeblock-%03d" $.Ordinal }}
 {{ $buttonId := printf "codeblock-button-%03d" $.Ordinal }}
 
-
 <div
-  x-data
-  class="render-hook-codeblock not-prose bg-light dark:bg-dark relative container mt-6 mb-8 w-full sm:w-120 md:w-160 border border-gray-200 font-mono dark:border-gray-800">
+  class="render-hook-codeblock not-prose bg-light dark:bg-dark relative container mt-6 mb-8 w-full border border-gray-200 font-mono sm:w-120 md:w-160 dark:border-gray-800">
   {{- $fileSelectClass := "select-none" }}
 
   {{- if $copy }}
     {{- $fileSelectClass = "select-text" }}
 
-
     <div
-      class="flex h-10 w-full justify-between"
-      class="bg-gray-600"
+      class="flex h-10 w-full justify-between bg-gray-600"
       onclick="copyCodeToClipboard ('{{ $codeblockId | safeHTML }}', '{{ $buttonId | safeHTML }}');">
-      <i class="fa-sharp fa-solid fa-copy"></i><p id="{{ $buttonId }}">Copy</p>
+      <i class="fa-sharp fa-solid fa-copy"></i>
+      <p id="{{ $buttonId }}">Copy</p>
 
       <div class="h-7 w-full">
-        <svg href=""></svg>
+        {{/* SVG was here */}}
       </div>
     </div>
   {{- end }}
@@ -111,8 +108,7 @@ may also specify the following parameters:
     </div>
   {{- end }}
 
-
-  <div id="{{ $codeblockId }}" x-ref="code" class="highlight w-full">
+  <div id="{{ $codeblockId }}" class="highlight w-full">
     {{- $content := .Inner }}
 
     {{- if $trim }}

@@ -30,7 +30,6 @@
     }}
     {{ with . | js.Build $opts }}
       {{ if hugo.IsDevelopment }}
-        <p>IN DEV</p>
         <script src="{{ .RelPermalink }}"></script>
       {{ else }}
         {{ with . | fingerprint }}

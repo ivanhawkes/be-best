@@ -5,12 +5,8 @@
     {{- partial "/components/author-attribution" . -}}
   </div>
 
-  <h1>{{ .Page.Title }}</h1>
-
-  <div>
-    <article class="prose flex w-full items-center justify-center">
-      <div>{{ .Content }}</div>
-    </article>
+  <div class="prose flex w-full items-center justify-center">
+    <div>{{ .Content }}</div>
   </div>
 
   {{- partial "/navigation/related.html" . -}}

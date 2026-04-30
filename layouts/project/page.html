@@ -4,10 +4,9 @@
 
     {{- partial "/components/author-attribution" . -}}
 
-    <h1>{{ .Page.Title }}</h1>
 
-    <article class="prose flex w-full items-center justify-center">
-      <div>{{ .Content }}</div>
-    </article>
+    <div class="prose flex w-full items-center justify-center">
+      {{ .Content }}
+    </div>
   </div>
 {{ end }}
