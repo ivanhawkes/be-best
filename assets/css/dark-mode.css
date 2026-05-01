@@ -1,22 +1,3 @@
-#theme-switch {
-  height: 2rem;
-  width: 2rem;
-  background-color: var(--color-brand-900);
-  padding: 0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-#theme-switch svg {
-  fill: var(--color-primary-foreground);
-  height: 1.25rem;
-  width: 1.25rem;
-}
-
 #theme-switch svg:last-child {
   display: none;
 }

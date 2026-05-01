@@ -4,7 +4,7 @@
 @import "./syntax-highlight.css";
 @import "./custom.css";
 @import "./dark-mode.css";
-@import "./hamburger.css";
+@import "./main-menu.css";
 
 :root {
   --background: oklch(1.00 0 0);

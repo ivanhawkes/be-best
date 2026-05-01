@@ -1,51 +1,43 @@
-<header>
-  <nav
-    class="mb-6 flex justify-between bg-brand-700 p-2 text-accent-foreground">
-    <div>
-      <ul class="navigation">
-        <li>
-          <a href="{{- $.Site.BaseURL -}}">
-            <i class="fa-solid fa-home"></i>
-            <span>Home</span>
-          </a>
-        </li>
+<nav class="main-menu mb-6 flex items-center justify-evenly">
+  {{- range .Site.Menus.main -}}
+    {{ .Params.icon | safeHTML }}
+    <a class="menu-entry" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+      <span>{{- .Name -}}</span>
+    </a>
+  {{- end -}}
 
-        {{- range .Site.Menus.main -}}
-          <li>
-            <a class="" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-              <i class="fa-solid {{- .Params.icon -}}"></i>
-              {{- .Name -}}
-            </a>
-          </li>
-        {{- end -}}
+  {{- range .Site.Menus.development -}}
+    {{ .Params.icon | safeHTML }}
+    <a class="menu-entry" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+      <span>{{- .Name -}}</span>
+    </a>
+  {{- end -}}
 
-        {{- range .Site.Menus.development -}}
-          <li>
-            <a class="" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-              <i class="fa-solid {{- .Params.icon -}}"></i>
-              {{- .Name -}}
-            </a>
-          </li>
-        {{- end -}}
-      </ul>
-    </div>
-    <div class="flex flex-row items-center justify-center">
-      <button id="theme-switch">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-          <path
-            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q10 0 20.5.67 10.5.66 24.17 2-37.67 31-59.17 77.83T444-660q0 90 63 153t153 63q53 0 99.67-20.5 46.66-20.5 77.66-56.17 1.34 12.34 2 21.84.67 9.5.67 18.83 0 150-105 255T480-120Z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-          <path
-            d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-446.67H40v-66.66h160v66.66Zm720 0H760v-66.66h160v66.66ZM446.67-760v-160h66.66v160h-66.66Zm0 720v-160h66.66v160h-66.66ZM260-655.33l-100.33-97 47.66-49 96 100-43.33 46Zm493.33 496-97.66-100.34 45-45.66 99.66 97.66-47 48.34Zm-98.66-541.34 97.66-99.66 49 47L702-656l-47.33-44.67ZM159.33-207.33 259-305l46.33 45.67-97.66 99.66-48.34-47.66Z" />
-        </svg>
-      </button>
-      <button id="hamburger">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-          <path
-            d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z" />
-        </svg>
-      </button>
-    </div>
-  </nav>
-</header>
+
+  <button id="theme-switch" class="menu-entry">
+    <svg
+      class="menu-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -960 960 960">
+      <path
+        d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q10 0 20.5.67 10.5.66 24.17 2-37.67 31-59.17 77.83T444-660q0 90 63 153t153 63q53 0 99.67-20.5 46.66-20.5 77.66-56.17 1.34 12.34 2 21.84.67 9.5.67 18.83 0 150-105 255T480-120Z" />
+    </svg>
+    <svg
+      class="menu-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -960 960 960">
+      <path
+        d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-446.67H40v-66.66h160v66.66Zm720 0H760v-66.66h160v66.66ZM446.67-760v-160h66.66v160h-66.66Zm0 720v-160h66.66v160h-66.66ZM260-655.33l-100.33-97 47.66-49 96 100-43.33 46Zm493.33 496-97.66-100.34 45-45.66 99.66 97.66-47 48.34Zm-98.66-541.34 97.66-99.66 49 47L702-656l-47.33-44.67ZM159.33-207.33 259-305l46.33 45.67-97.66 99.66-48.34-47.66Z" />
+    </svg>
+  </button>
+
+  <button id="hamburger" class="menu-entry">
+    <svg
+      class="menu-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -960 960 960">
+      <path
+        d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z" />
+    </svg>
+  </button>
+</nav>
