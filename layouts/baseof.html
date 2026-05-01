@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ .Site.Language.Lang }}">
   {{- partial "/meta/head.html" . -}}
 
   <body class="dark bg-background text-foreground">
     {{- partial "/page/header.html" . -}}
 
-    <main class="mx-auto w-full max-w-2xl flex-auto">
+    <main class="mx-4 w-full max-w-full flex-auto">
       {{- block "main" . }}{{- end }}
     </main>
 

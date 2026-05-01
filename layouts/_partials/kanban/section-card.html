@@ -1,4 +1,4 @@
-{{ $bannerColour := "bg-card" }}
+{{ $bannerColour := "bg-brand-600" }}
 {{ $due := time .Params.due }}
 {{ if and (not .Params.completed) .Params.due }}
   {{ if gt time.Now $due }}
@@ -7,43 +7,35 @@
 {{ end }}
 
 
-<div class="container w-52 rounded-none border p-2 text-sm">
-  <div>
-    <div
-      class="{{ $bannerColour }} flex h-8 items-center justify-center border bg-accent text-base font-extrabold">
-      <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-    </div>
+<div class="container w-full rounded-none border text-sm justify-evenly">
+  <div
+    class="{{ $bannerColour }} flex h-8 items-center justify-center bg-accent text-base font-bold">
+    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+  </div>
+
+  <div class="m-3 bg-brand-faded">
+  <div class="font-bold line-clamp-2 ">
+    {{ .Description }}
+  </div>
+
+  <div class="line-clamp-3 text-sm">
+    {{ .Summary }}
+  </div>
+
+  {{ if gt .Params.percent 0 }}
     <div>
-      <div class="font-bold">
-        {{ .Description }}
-      </div>
-
-      <div class="line-clamp-4 text-sm">
-        {{ .Summary }}
-      </div>
-
-      <div>
-        Priority:
-        {{ .Params.priority }}
-      </div>
-
-      <div>Estimated Time: {{ .Params.estimatedtime }} hours</div>
-      <div>Estimated Time: {{ .Params.actualtime }} hours</div>
-
-      {{ if gt .Params.percent 0 }}
-        <div>
-          <progress
-            class="h-6 w-full border bg-accent font-bold"
-            value="{{ .Params.percent }}"
-            min="0"
-            max="100"></progress>
-        </div>
-      {{ end }}
-
+      <progress
+        class="h-6 w-full border bg-accent font-bold mt-3"
+        value="{{ .Params.percent }}"
+        min="0"
+        max="100"></progress>
     </div>
-    <div
-      class="{{ $bannerColour }} text-md flex h-5 justify-center border bg-accent font-bold">
-      <p>{{ .Params.author }}</p>
-    </div>
+  {{ end }}
+
+  {{ with .Params.author }}
+    <div class="flex justify-center w-full mt-2">
+    <p>{{- . -}}</p>
+  </div>
+  {{ end }}
   </div>
 </div>
