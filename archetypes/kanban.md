@@ -7,17 +7,16 @@ lastmod:
 author: ""
 params:
   sprint: null
-  stage: story
+  stage: design
   status: pending
+  completed: null
+  due:
+  percent: 0
   estimatedtime: 1
   actualtime: 0
-  completed: null
-  sprint: null
-  due:
   priority: 550
-  percent: 0
-  depends-on: []
-  references: []
+  depends-on: null
+  references: null
 ---
 
 Please provide a brief summary of the task.
