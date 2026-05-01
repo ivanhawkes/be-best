@@ -1,57 +1,52 @@
 .main-menu {
-  background-color: rgb(73, 5, 42);
-  color: white;
+  background-color: var(--color-brand-700);
+  color: var(--color-primary-foreground);
 
-  height: 5rem;
-
-  display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
-
-  border-width: 2px;
-  border-color: white;
-  border-style: solid;
-  border-radius: 1rem;
-}
-
-.menu-entry {
-  background-color: turquoise;
-
-  /* height: 3rem; */
-
-  overflow: clip;
-
-  /* min-width: 2rem;
-  min-height: 2rem; */
+  height: 3rem;
 
   display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
+  justify-content: space-around;
+  align-items: center;
 
-  /* border-width: 2px;
-  border-color: green;
-  border-style: solid;
-  border-radius: 1rem; */
+  margin-bottom: 1.5rem;
 }
 
-.menu-icon {
-  background-color: blue;
+.footer-menu {
+  background-color: var(--color-brand-700);
+  color: var(--color-primary-foreground);
 
-  /* padding: 1rem; */
+  height: 3rem;
 
-  height: 2.5rem;
-  /* width: 2.5rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  /* border-width: 2px;
-  border-color: red;
-  border-style: solid;
-  border-radius: 50%; */
+  margin-bottom: 1.5rem;
 }
 
-/* .menu-icon svg { */
-svg {
+.main-menu a {
+  color: var(--color-primary-foreground);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.main-menu svg {
+  background-color: transparent;
+  fill: var(--color-primary-foreground);
+  height: 1.75rem;
+  width: 1.75rem;
+  margin: 0.25rem;
+}
+
+.main-menu button {
   background-color: var(--color-brand-950);
-  fill: black;
-  height: 1.5rem;
-  width: 1.5rem;
- }
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

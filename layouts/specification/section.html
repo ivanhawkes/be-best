@@ -1,7 +1,5 @@
 {{ define "main" }}
   <div class="container mx-auto">
-    {{/* {{- partial "/components/carousel.html" . -}} */}}
-
     <!-- If there's any content, it can go here, in it's own row. -->
     {{ with .Content }}
       <section>
@@ -17,9 +15,9 @@
       {{ range $paginator.Pages }}
         {{- partial "/posts/card.html" . -}}
       {{ end }}
-
     </div>
 
     {{- partial "pagination.html" . -}}
   </div>
 {{ end }}
+
