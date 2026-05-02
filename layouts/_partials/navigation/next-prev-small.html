@@ -1,15 +1,15 @@
 <!-- Next / Previous. -->
-<div class="flex justify-between gap-6 rounded-md">
+<div class="flex justify-between gap-2 rounded-md">
   <div
-    class="m-4 flex w-full flex-row items-center rounded-lg border-2 bg-background p-4">
+    class="m-4 flex w-full flex-row items-center rounded-lg border-2 bg-background p-1">
     {{ with .PrevInSection }}
       <a
         class="flex flex-row items-center justify-start"
         href="{{ .Permalink }}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="64"
-          width="64"
+          height="32"
+          width="32"
           fill="white"
           viewBox="0 -960 960 960">
           <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
@@ -18,28 +18,22 @@
         <div class="text-left">
           Previous
           <br />
-          <span class="text-xl">
-            {{ .Title | truncate 32 }}
-          </span>
         </div>
       </a>
     {{ end }}
   </div>
   <div
-    class="m-4 flex w-full flex-row items-center justify-end rounded-lg border-2 bg-background p-4">
+    class="m-4 flex w-full flex-row items-center justify-end rounded-lg border-2 bg-background p-1">
     {{ with .NextInSection }}
       <a class="flex flex-row items-center justify-end" href="{{ .Permalink }}">
         <div class="text-right">
           Next
           <br />
-          <span class="text-xl">
-            {{ .Title | truncate 32 }}
-          </span>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="64"
-          width="64"
+          height="32"
+          width="32"
           fill="white"
           viewBox="0 -960 960 960">
           <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
