@@ -5,6 +5,8 @@ description: "No Description"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 lastmod:
 author: ""
+categories: null
+tags: null
 params:
   sprint: null
   stage: design
@@ -15,7 +17,7 @@ params:
   estimatedtime: 1
   actualtime: 0
   priority: 550
-  depends-on: null
+  dependencies: null
   references: null
 ---
 

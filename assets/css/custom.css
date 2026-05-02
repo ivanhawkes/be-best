@@ -17,7 +17,7 @@
 }
 
 /* Branding colors */
-
+/* 
 @theme {
   --color-brand-50: oklch(95.0% 0.1211 42.6);
   --color-brand-100: oklch(82.0% 0.1211 42.6);
@@ -37,7 +37,7 @@
   --color-brand-faded-600: oklch(50.0% 0.09 42.6);
   --color-brand-faded-700: oklch(50.0% 0.1 42.6);
 
-}
+} */
 
 
 /* Light / Dark mode colors */

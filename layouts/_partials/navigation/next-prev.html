@@ -1,6 +1,6 @@
 <!-- Next / Previous. -->
 <div class="text-md flex items-center justify-between">
-  <div class="rounded-md bg-brand-600 text-start">
+  <div class="rounded-md bg-primary text-start">
     {{ with .PrevInSection }}
       <a class="" href="{{ .Permalink }}">
         <span>«&NonBreakingSpace;</span>
@@ -8,7 +8,7 @@
       </a>
     {{ end }}
   </div>
-  <div class="rounded-md bg-brand-600 text-end">
+  <div class="rounded-md bg-primary text-end">
     {{ with .NextInSection }}
       <a href="{{ .Permalink }}">
         {{ .Title | truncate 32 }}&NonBreakingSpace;
