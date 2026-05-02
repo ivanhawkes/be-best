@@ -1,3 +1,7 @@
+@theme inline {
+    --color-primary-lower: oklch(from var(--primary) calc(l * .40) c h);
+}
+
 .main-menu {
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -44,7 +48,7 @@
 }
 
 .main-menu button {
-  background-color: var(--primary);
+  background-color: var(--color-primary-lower);
   border-radius: 50%;
   cursor: pointer;
   margin: 0.25rem;

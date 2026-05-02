@@ -1,11 +1,12 @@
 {{ define "main" }}
   {{- partial "/components/hero-image" . -}}
 
+
   <div>
     {{- partial "/components/author-attribution" . -}}
   </div>
 
-  <div class="prose flex w-full items-center justify-center">
+  <div class="prose flex w-full items-center justify-center prose-neutral">
     <div>{{ .Content }}</div>
   </div>
 
