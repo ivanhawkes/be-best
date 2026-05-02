@@ -1,18 +1,49 @@
 <!-- Next / Previous. -->
-<div class="text-md flex items-center justify-between">
-  <div class="rounded-md bg-primary text-start">
+<div class="text-md flex justify-between gap-6 rounded-md">
+  <div
+    class="m-4 flex w-full flex-row items-center rounded-lg border-2 bg-background p-4">
     {{ with .PrevInSection }}
-      <a class="" href="{{ .Permalink }}">
-        <span>«&NonBreakingSpace;</span>
-        {{ .Title | truncate 32 }}
+      <a
+        class="flex flex-row items-center justify-start"
+        href="{{ .Permalink }}">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="64"
+          width="64"
+          fill="white"
+          viewBox="0 -960 960 960">
+          <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+        </svg>
+
+        <div class="text-left">
+          Previous
+          <br />
+          <span class="text-xl">
+            {{ .Title | truncate 32 }}
+          </span>
+        </div>
       </a>
     {{ end }}
   </div>
-  <div class="rounded-md bg-primary text-end">
+  <div
+    class="m-4 flex w-full flex-row items-center justify-end rounded-lg border-2 bg-background p-4">
     {{ with .NextInSection }}
-      <a href="{{ .Permalink }}">
-        {{ .Title | truncate 32 }}&NonBreakingSpace;
-        <span>»</span>
+      <a class="flex flex-row items-center justify-end" href="{{ .Permalink }}">
+        <div class="text-right">
+          Next
+          <br />
+          <span class="text-xl">
+            {{ .Title | truncate 32 }}
+          </span>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="64"
+          width="64"
+          fill="white"
+          viewBox="0 -960 960 960">
+          <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+        </svg>
       </a>
     {{ end }}
   </div>
