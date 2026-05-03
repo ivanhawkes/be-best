@@ -1,0 +1,10 @@
+{{ range .Resources.ByType "image" }}
+  {{ if eq .Name "featured.webp" }}
+    <img
+      class="rounded-md"
+      src="{{ .RelPermalink }}"
+      width="{{ .Width }}"
+      height="{{ .Height }}"
+      alt="{{ $.Params.imagecaption }}" />
+  {{ end }}
+{{ end }}

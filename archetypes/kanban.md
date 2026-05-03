@@ -16,7 +16,7 @@ params:
   percent: 0
   estimatedtime: 1
   actualtime: 0
-  priority: 550
+  priority: 350
   dependencies: null
   references: null
 ---

@@ -1,12 +1,14 @@
 {{ define "main" }}
-  {{- partial "/components/hero-image" . -}}
+  {{- partial "/components/featured-image" . -}}
 
   <div>
-    {{- partial "/components/author-attribution" . -}}
+    {{- partial "/byline/byline.html" . -}}
   </div>
 
-  <div class="prose flex w-full items-center justify-center prose-neutral">
-    {{ .Content }}
+  {{- partial "/navigation/next-prev-small.html" . -}}
+
+  <div class="prose w-full prose-neutral">
+    <div>{{ .Content }}</div>
   </div>
 
   {{- partial "/navigation/related.html" . -}}

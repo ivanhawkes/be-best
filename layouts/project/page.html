@@ -1,11 +1,10 @@
 {{ define "main" }}
   <div class="container mx-auto">
-    {{- partial "/components/hero-image" . -}}
+    {{- partial "/components/featured-image" . -}}
 
-    {{- partial "/components/author-attribution" . -}}
+    {{- partial "/byline/byline.html" . -}}
 
-
-    <div class="prose flex w-full items-center justify-center prose-neutral">
+  <div class="prose w-full prose-neutral">
       {{ .Content }}
     </div>
   </div>

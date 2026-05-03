@@ -1,13 +1,5 @@
 <div class="w-52 rounded-md border bg-card p-2">
-  <div>
-    <a href="{{ .Permalink }}/profiles/{{ .profile }}/">
-      {{ if .avatar }}
-        <img src="{{ .avatar }}" />
-      {{ else }}
-        <img src="/img/site/missing-image.jpg" />
-      {{ end }}
-    </a>
-  </div>
+  {{- partial "/components/featured-image-small.html" . -}}
 
   <div>
     <div class="text-lg">

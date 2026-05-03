@@ -1,4 +1,4 @@
-<div class="text-md m-4 flex items-center justify-center space-x-4">
+<div class="text-md m-4 flex flex-col items-center justify-center space-x-4">
   <ul class="navigation">
     <!-- Taxonomy - Categories. -->
     {{ range $index, $value := .Params.categories }}
@@ -7,8 +7,10 @@
         <a href="/categories/{{ . | urlize }}">{{- $value -}}</a>
       </li>
     {{ end }}
+  </ul>
 
     <!-- Taxonomy - Tags. -->
+  <ul class="navigation">
     {{ range $index, $value := .Params.tags }}
       <li>
         {{ if $index }}&#9210;{{ end }}

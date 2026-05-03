@@ -1,8 +1,10 @@
 {{ define "main" }}
   {{ range (where hugo.Data.profile.person "profile" .Params.profile) }}
     <div>
+      {{- partial "/components/featured-image" . -}}
+
       <div>
-        <img src="{{ .avatar }}" alt="Circle Image" />
+        <img src="{{ .avatar }}" alt="Avatar of {{ .name }}" />
       </div>
 
       <div>
@@ -16,9 +18,8 @@
     </div>
   {{ end }}
 
-
   <!-- Main Content -->
-  <article class="prose flex w-full items-center justify-center prose-neutral">
+  <div class="prose w-full prose-neutral">
     <div>{{ .Content }}</div>
-  </article>
+  </div>
 {{ end }}

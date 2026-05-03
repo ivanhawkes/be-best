@@ -2,16 +2,21 @@
   <div class="container mx-auto">
     <!-- If there's any content, it can go here, in it's own row. -->
     {{ with .Content }}
-      <div class="container mx-auto">
+      <div class="prose w-full prose-neutral">
         {{ . }}
       </div>
     {{ end }}
 
     <div
       class="grid grid-cols-1 space-y-4 space-x-4 md:grid-cols-2 xl:grid-cols-3">
-      {{ range .Pages.ByDate.Reverse }}
-        {{- partial "/recipes/card.html" . -}}
+      {{ $pages := .Pages.ByDate.Reverse }}
+      {{ $paginator := .Paginate $pages.ByTitle 6 }}
+
+      {{ range $paginator.Pages }}
+        {{- partial "/posts/card.html" . -}}
       {{ end }}
     </div>
+
+    {{- partial "pagination.html" . -}}
   </div>
 {{ end }}

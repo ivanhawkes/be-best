@@ -4,9 +4,9 @@
       <div class="row">
         <!-- If there's any content, it can go here, in it's own row. -->
         {{ with .Content }}
-          <article class="flex w-full items-center justify-center">
+          <div class="prose w-full prose-neutral">
             {{ . }}
-          </article>
+          </div>
         {{ end }}
 
         <div

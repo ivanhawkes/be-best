@@ -2,9 +2,9 @@
   <div class="container mx-auto">
     <!-- If there's any content, it can go here, in it's own row. -->
     {{ with .Content }}
-      <section>
+      <div class="prose w-full prose-neutral">
         {{ . }}
-      </section>
+      </div>
     {{ end }}
 
     <div

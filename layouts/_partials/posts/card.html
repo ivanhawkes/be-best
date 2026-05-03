@@ -1,12 +1,6 @@
 <div class="w-52 rounded-md border bg-card p-2">
-  {{ if .Params.image }}
-    <div>
-      <a href="{{ .Permalink }}">
-        <img class="rounded-md" src="{{ .Params.image }}" />
-      </a>
-    </div>
-  {{ end }}
 
+  {{- partial "/components/featured-image-small.html" . -}}
 
   <div>
     <div class="text-lg">

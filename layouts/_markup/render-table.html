@@ -1,4 +1,5 @@
-<div class="overflow-x-auto">
+{{/*  TODO: The div causes layout issues. Is it needed for the tables?  */}}
+{{/*  <div class="overflow-x-auto">  */}}
   <table
     {{- range $k, $v := .Attributes }}
       {{- if $v }}
@@ -9,7 +10,7 @@
       {{- range .THead }}
         <tr>
           {{- range . }}
-            <th {{- with .Alignment }} class="!text-{{ . }}"{{- end }}>
+            <th {{- with .Alignment }}class="!text-{{ . }}"{{- end }}>
               {{- .Text -}}
             </th>
           {{- end }}
@@ -18,9 +19,9 @@
     </thead>
     <tbody>
       {{- range .TBody }}
-        <tr class="even:bg-gray-500 odd:bg-gray-600">
+        <tr class="odd:bg-gray-600 even:bg-gray-500">
           {{- range . }}
-            <td {{- with .Alignment }} class="!text-{{ . }}"{{- end }}>
+            <td {{- with .Alignment }}class="!text-{{ . }}"{{- end }}>
               {{- .Text -}}
             </td>
           {{- end }}
@@ -28,4 +29,4 @@
       {{- end }}
     </tbody>
   </table>
-</div>
+{{/*  </div>  */}}
