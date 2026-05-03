@@ -1,7 +1,7 @@
 {{ range .Resources.ByType "image" }}
   {{ if eq .Name "featured.webp" }}
     <img
-      class="featured-image"
+      class="rounded-md"
       src="{{ .RelPermalink }}"
       width="{{ .Width }}"
       height="{{ .Height }}"

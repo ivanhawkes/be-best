@@ -3,7 +3,7 @@
     <!-- Taxonomy - Categories. -->
     {{ range $index, $value := .Params.categories }}
       <li>
-        {{ if $index }}&#9210;{{ end }}        
+        {{ if $index }} &#9210; {{ end }}
         <a href="/categories/{{ . | urlize }}">{{- $value -}}</a>
       </li>
     {{ end }}
@@ -13,7 +13,7 @@
   <ul class="navigation">
     {{ range $index, $value := .Params.tags }}
       <li>
-        {{ if $index }}&#9210;{{ end }}
+        {{ if $index }} &#9210; {{ end }}
           <a href="/tags/{{ . | urlize }}">{{- $value -}}</a>
       </li>
     {{ end }}

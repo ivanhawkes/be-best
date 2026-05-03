@@ -22,4 +22,7 @@
   <div class="prose w-full prose-neutral">
     <div>{{ .Content }}</div>
   </div>
-{{ end }}
+
+  {{- partial "/navigation/related.html" . -}}
+
+  {{ end }}
