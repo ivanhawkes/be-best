@@ -1,6 +1,7 @@
 {{/* Search the page's resources for an image named "featured.webp". If not found,
-search the parent page's resources. If found, display the image with its
-dimensions and an optional caption. */}}
+  search the parent page's resources. If found, display the image with its
+  dimensions and an optional caption.
+*/}}
 
 {{ $found := false }}
 {{ $image := "" }}
@@ -17,11 +18,15 @@ dimensions and an optional caption. */}}
 {{ end }}
 
 {{ if eq $found true }}
-  <img
-    src="{{ $image.RelPermalink }}"
-    alt=""
-    class="rounded-md"
-    alt="{{ $.Params.imagecaption }}"
-    width="{{ $image.Width }}"
-    height="{{ $image.Height }}" />
+  {{- $ctx := dict
+    "image" $image
+    "destination" $image.RelPermalink
+    "title" $image.Params.title
+    "alt" $image.Params.caption
+  }}
+  {{/*  <pre>
+    <p>{{ debug.Dump $image.Params }}</p>
+  </pre>  */}}
+
+  {{- partial "/images/image-variants.html" $ctx }}
 {{ end }}

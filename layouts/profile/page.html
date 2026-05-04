@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ range (where hugo.Data.profile.person "profile" .Params.profile) }}
     <div>
-      {{- partial "/components/featured-image" . -}}
+      {{- partial "/images/featured-image" . -}}
 
       <div>
         <img src="{{ .avatar }}" alt="Avatar of {{ .name }}" />
