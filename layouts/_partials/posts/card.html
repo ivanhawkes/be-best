@@ -1,12 +1,13 @@
-<div class="w-52 rounded-md border bg-card p-2">
+<div class="w-full rounded-md border bg-card p-2">
 
-  {{- partial "/components/featured-image-small.html" . -}}
+  {{- partial "/components/featured-image.html" . -}}
 
   <div>
     <div class="text-lg">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </div>
     <div class="line-clamp-4 text-sm">
+      
       {{ .Summary }}
       <a href="{{ .Permalink }}">Read More&nbsp;>></a>
     </div>

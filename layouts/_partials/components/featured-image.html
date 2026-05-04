@@ -1,10 +1,27 @@
-{{ range .Resources.ByType "image" }}
-  {{ if eq .Name "featured.webp" }}
-    <img
-      class="rounded-md"
-      src="{{ .RelPermalink }}"
-      width="{{ .Width }}"
-      height="{{ .Height }}"
-      alt="{{ $.Params.imagecaption }}" />
+{{/* Search the page's resources for an image named "featured.webp". If not found,
+search the parent page's resources. If found, display the image with its
+dimensions and an optional caption. */}}
+
+{{ $found := false }}
+{{ $image := "" }}
+{{ $prefix := "featured.webp" }}
+
+{{ $image = .Page.Resources.GetMatch $prefix }}
+{{ if $image }}
+  {{ $found = true }}
+{{ else }}
+  {{ $image = .Parent.Page.Resources.GetMatch $prefix }}
+  {{ if $image }}
+    {{ $found = true }}
   {{ end }}
+{{ end }}
+
+{{ if eq $found true }}
+  <img
+    src="{{ $image.RelPermalink }}"
+    alt=""
+    class="rounded-md"
+    alt="{{ $.Params.imagecaption }}"
+    width="{{ $image.Width }}"
+    height="{{ $image.Height }}" />
 {{ end }}
