@@ -11,15 +11,7 @@
 {{- $filter := "box" -}}
 {{- $imgClass := "w-full h-auto shadow animate-fade" -}}
 
-{{/*  <pre>
-    Image: {{ $image }}
-    Alt: {{ $alt }}
-    Title: {{ $title }}
-    MD5: {{ $imageMD5 }}
-</pre>  */}}
-
   {{ with $image }}
-  {{/*  <p>GOT HERE</p>  */}}
   
     {{- $divClass := print "relative bigImgDiv imgB-" $imageMD5 "-" $blurFormat -}}
     {{- $imgRsc := . -}}

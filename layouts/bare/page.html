@@ -1,7 +1,3 @@
 {{ define "main" }}
-  <p>BARE: PAGE</p>
-
-  <div>
-    {{ .Content }}
-  </div>
+  {{ partial "page/content.html" . }}
 {{ end }}

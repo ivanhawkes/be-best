@@ -1,5 +1,6 @@
 @theme inline {
-    --color-primary-lower: oklch(from var(--primary) calc(l * .40) c h);
+    --color-primary-dark: oklch(from var(--primary) calc(l * .40) c h);
+    --color-primary-light: oklch(from var(--primary) calc(l * 1.40) c h);
 }
 
 .main-menu {
@@ -48,7 +49,7 @@
 }
 
 .main-menu button {
-  background-color: var(--color-primary-lower);
+  background-color: var(--color-primary-dark);
   border-radius: 50%;
   cursor: pointer;
   margin: 0.25rem;

@@ -1,20 +1,10 @@
 {{ define "main" }}
-  <section class="container mx-auto">
-    <p>BARE: SECTION</p>
+  {{ partial "page/content.html" . }}
 
-    <!-- If there's any content, it can go here, in it's own row. -->
-    {{ with .Content }}
-      <div class="prose w-full prose-neutral">
-        {{ . }}
-      </div>
+  <div
+    class="grid grid-cols-1 gap-4 space-y-4 space-x-4 md:grid-cols-2 xl:grid-cols-3">
+    {{ range .Pages.ByDate.Reverse }}
+      {{- partial "/posts/card.html" . -}}
     {{ end }}
-
-
-    <div
-      class="grid grid-cols-1 space-y-4 space-x-4 md:grid-cols-2 xl:grid-cols-3">
-      {{ range .Pages.ByDate.Reverse }}
-        {{- partial "/posts/card.html" . -}}
-      {{ end }}
-    </div>
-  </section>
+  </div>
 {{ end }}

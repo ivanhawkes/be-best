@@ -18,10 +18,7 @@
     </div>
   {{ end }}
 
-  <!-- Main Content -->
-  <div class="prose w-full prose-neutral">
-    <div>{{ .Content }}</div>
-  </div>
+  {{ partial "page/content.html" . }}
 
   {{- partial "/navigation/related.html" . -}}
 

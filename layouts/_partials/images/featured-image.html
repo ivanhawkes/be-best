@@ -24,9 +24,6 @@
     "title" $image.Params.title
     "alt" $image.Params.caption
   }}
-  {{/*  <pre>
-    <p>{{ debug.Dump $image.Params }}</p>
-  </pre>  */}}
 
   {{- partial "/images/image-variants.html" $ctx }}
 {{ end }}

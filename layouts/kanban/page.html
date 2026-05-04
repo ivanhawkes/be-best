@@ -1,12 +1,5 @@
 {{ define "main" }}
-  <div class="container mx-auto">
-    <p>KANBAN: PAGE</p>
-
     {{- partial "/kanban/card.html" . -}}
 
-    <article class="prose prose-neutral">
-      {{ .Content }}
-    </article>
-
-  </div>
+    {{ partial "page/content.html" . }}
 {{ end }}

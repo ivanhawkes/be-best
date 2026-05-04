@@ -1,9 +1,7 @@
 {{ define "main" }}
-  {{- partial "/navigation/next-prev.html" . -}}
+  {{- partial "/navigation/next-prev-small.html" . -}}
 
-  <article class="flex max-w-full justify-center">
-    <div class="prose prose-neutral">{{ .Content }}</div>
-  </article>
+  {{ partial "page/content.html" . }}
 
   {{- partial "/navigation/next-prev.html" . -}}
   

@@ -7,9 +7,7 @@
 
   {{- partial "/navigation/next-prev-small.html" . -}}
 
-  <div class="prose w-full prose-neutral">
-    <div>{{ .Content }}</div>
-  </div>
+  {{ partial "page/content.html" . }}
 
   {{- partial "/navigation/related.html" . -}}
 {{ end }}
