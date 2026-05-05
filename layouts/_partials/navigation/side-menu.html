@@ -1,0 +1,8 @@
+<p>SIDE MENU</p>
+
+<nav class="nav-sidebar flex flex-col">
+  <ul>
+    {{ partial "/navigation/recursive-nav.html" (dict "context" . "menu" $.Site.Menus.main "depth" 0) }}
+    {{ partial "/navigation/recursive-nav.html" (dict "context" . "menu" $.Site.Menus.development "depth" 0) }}
+  </ul>
+</nav>

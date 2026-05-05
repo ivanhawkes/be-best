@@ -8,7 +8,8 @@
 @import "./syntax-highlight.css";
 @import "./custom.css";
 @import "./dark-mode.css";
-@import "./main-menu.css";
+@import "./nav-sidebar.css";
+@import "./brand.css";
 @import "./prose-overrides.css";
 
 
