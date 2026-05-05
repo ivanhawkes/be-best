@@ -12,13 +12,15 @@
   <!-- Font Awesome -->
   <script
     src="https://kit.fontawesome.com/68d3da0283.js"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
 
+  <!-- Site title -->
   <title>{{- .Site.Title -}}</title>
-  {{ range .AlternativeOutputFormats }}
-    {{- printf `
-      <link rel=%q type=%q href=%q>` .Rel .MediaType.Type .Permalink | safeHTML
-    -}}
+
+  <!-- RSS Feed -->
+  {{ with .OutputFormats.Get "rss" }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
 
   {{/* TypeScript and JavaScript

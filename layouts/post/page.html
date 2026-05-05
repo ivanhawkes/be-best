@@ -1,5 +1,7 @@
 {{ define "main" }}
-  {{- partial "/images/featured-image" . -}}
+  {{- partial "/images/featured-image.html" . -}}
+
+  {{- partial "/components/breadcrumbs.html" . -}}
 
   <div>
     {{- partial "/byline/byline.html" . -}}
