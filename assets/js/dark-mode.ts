@@ -2,7 +2,6 @@
 // and updating localStorage.
 const enableDarkMode = () => {
   document.body.classList.add('dark')
-  document.body.classList.add('dark:prose-invert')
   localStorage.setItem('darkMode', 'enabled')
 }
 
@@ -10,7 +9,6 @@ const enableDarkMode = () => {
 // and updating localStorage.
 const disableDarkMode = () => {
   document.body.classList.remove('dark')
-  document.body.classList.remove('dark:prose-invert')
   localStorage.setItem('darkMode', 'disabled')
 }
 

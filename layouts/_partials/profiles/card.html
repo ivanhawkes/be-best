@@ -1,5 +1,7 @@
 <div class="w-full rounded-md border bg-card p-2">
-  {{- partial "/images/featured-image.html" . -}}
+  <a href="{{ .Permalink }}">
+    {{- partial "/images/featured-image.html" . -}}
+  </a>
 
   <div>
     <div class="text-lg">
@@ -8,8 +10,6 @@
     <div>{{ .position }}</div>
     <div class="text-sm">
       {{ .description }}
-      <br />
-      <a href="{{ .Permalink }}/profiles/{{ .profile }}/">Read More&nbsp;>></a>
     </div>
   </div>
 </div>
