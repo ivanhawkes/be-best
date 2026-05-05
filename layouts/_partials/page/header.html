@@ -1,20 +1,15 @@
-<nav class="nav-sidebar">
-  <div class="flex justify-start">
+<nav
+  class="navigation fixed top-0 z-50 m-0 flex h-12 w-full justify-between bg-primary-700 text-primary-foreground">
+  <div class="flex justify-start gap-3">
     {{- range .Site.Menus.main -}}
-      <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-        {{ .Params.icon | safeHTML }}
-        <span>{{- .Name -}}</span>
-      </a>
-    {{- end -}}
-
-    {{- range .Site.Menus.development -}}
-      <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+      <a class="flex items-center" href="{{- $.Site.BaseURL -}}{{- .URL -}}">
         {{ .Params.icon | safeHTML }}
         <span>{{- .Name -}}</span>
       </a>
     {{- end -}}
   </div>
-  <div class="flex justify-end">
+
+  <div class="mr-4 flex size-12 justify-end">
     <button id="theme-switch">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
         <path
@@ -26,17 +21,21 @@
       </svg>
     </button>
 
-    {{/*  <div>
+    {{/* <div>
       <script async src="https://cse.google.com/cse.js?cx=03ef7ae2891074a13">
       </script>
       <div class="gcse-search"></div>
-    </div>  */}}
+      </div>
+    */}}
 
-    <button id="hamburger">
+
+    <button id="hamburger-menu">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
         <path
           d="M151.18-230.2q-16 0-26.94-10.97-10.94-10.97-10.94-27.1 0-16.13 10.94-26.98 10.94-10.86 26.94-10.86h657.64q16 0 27.02 10.97 11.02 10.98 11.02 27.11 0 16.12-11.02 26.98-11.02 10.85-27.02 10.85H151.18Zm0-211.92q-16 0-26.94-10.98-10.94-10.97-10.94-27.02 0-16.05 10.94-26.9 10.94-10.86 26.94-10.86h657.64q16 0 27.02 10.98 11.02 10.97 11.02 27.02 0 16.05-11.02 26.9-11.02 10.86-27.02 10.86H151.18Zm0-211.77q-16 0-26.94-10.97-10.94-10.98-10.94-27.11 0-16.12 10.94-26.98 10.94-10.85 26.94-10.85h657.64q16 0 27.02 10.97t11.02 27.1q0 16.13-11.02 26.98-11.02 10.86-27.02 10.86H151.18Z" />
       </svg>
     </button>
+
+    {{ partial "/navigation/side-menu.html" . }}
   </div>
 </nav>

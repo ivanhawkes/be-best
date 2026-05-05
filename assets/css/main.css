@@ -11,7 +11,7 @@
 @import "./nav-sidebar.css";
 @import "./brand.css";
 @import "./prose-overrides.css";
-
+@import "./footer.css"
 
 @custom-variant dark (&:is(.dark *));
 
