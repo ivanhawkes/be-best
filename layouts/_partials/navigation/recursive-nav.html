@@ -2,7 +2,7 @@
 
 {{ if lt $depth 3 }}
   {{- range $index, $element := .menu -}}
-    {{ if $element.Children }}
+    {{ if and (lt $depth 2) ($element.Children) }}
       <li>
         <button class="dropdown-btn">
           {{ .Params.icon | safeHTML }}
