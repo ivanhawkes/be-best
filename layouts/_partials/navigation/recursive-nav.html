@@ -2,14 +2,16 @@
 
 {{ if lt $depth 3 }}
   {{- range $index, $element := .menu -}}
-    <li>
-      <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-        <div class="flex flex-row">
-          {{ .Params.icon | safeHTML }}
-          <span>{{- $element.Name -}}</span>
-        </div>
-      </a>
-    </li>
+    <a
+      class="col-span-11 justify-start hover:bg-primary-700"
+      href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+      <li class="inline-flex items-center">
+        {{ .Params.icon | safeHTML }}
+        <span>{{- $element.Name -}}</span>
+      </li>
+    </a>
+
+    {{/* <p class="justify-end items-center">X</p> */}}
 
     {{ if $element.Children }}
       {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}

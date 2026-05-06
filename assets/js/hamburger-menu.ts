@@ -1,22 +1,27 @@
-const openSidebar = () => {
-  document.body.classList.add('dark')
-  localStorage.setItem('darkMode', 'enabled')
+const sidebarId = 'nav-sidebar'
+const sidebarElement = document.getElementById(sidebarId)
 
-  const sidebarElement = document.getElementById('nav-sidebar')
-  if (sidebarElement)
-  {
-    // sidebarElement.
-    console.log('got side')
+const hideSidebar = () => {
+  if (sidebarElement) {
+    sidebarElement.style.display = 'none'
   }
 }
 
-const closeSidebar = () => {
-  document.body.classList.remove('dark')
-  localStorage.setItem('darkMode', 'disabled')
-
-  const sidebarElement = document.getElementById('nav-sidebar')
+const showSidebar = () => {
   if (sidebarElement) {
-    console.log('got side')
+    sidebarElement.style.display = 'block'
+  }
+}
+
+const toggleSidebar = () => {
+  if (sidebarElement) {
+    console.log('display:' + sidebarElement.style.display)
+
+    if (sidebarElement.style.display === 'block') {
+      hideSidebar()
+    } else {
+      showSidebar()
+    }
   }
 }
 
@@ -27,23 +32,11 @@ export const initSidebar = () => {
     hamburgerMenu.addEventListener(
       'click',
       () => {
-        const darkMode = localStorage.getItem('darkMode') || 'disabled'
-
-        if (darkMode !== 'enabled') {
-          openSidebar()
-        } else {
-          closeSidebar()
-        }
+        toggleSidebar()
       },
       false
     )
-
-    // const darkMode = localStorage.getItem('darkMode') || 'disabled'
-    // if (darkMode !== 'enabled') {
-    //   closeSidebar()
-    // } else {
-    //   openSidebar()
-    // }
+    hideSidebar()
   }
 }
 
