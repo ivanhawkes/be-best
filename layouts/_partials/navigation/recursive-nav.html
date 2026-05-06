@@ -24,10 +24,12 @@
         </ul>
       </li>
     {{ else }}
-      <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-        {{ .Params.icon | safeHTML }}
-        <span>{{- $element.Name -}}</span>
-      </a>
+      <li>
+        <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+          {{ .Params.icon | safeHTML }}
+          <span>{{- $element.Name -}}</span>
+        </a>
+      </li>
     {{ end }}
 
   {{ end }}
