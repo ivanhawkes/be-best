@@ -8,10 +8,11 @@
 @import "./syntax-highlight.css";
 @import "./custom.css";
 @import "./dark-mode.css";
-@import "./nav-sidebar.css";
+@import "./sidebar.css";
 @import "./brand.css";
 @import "./prose-overrides.css";
 @import "./footer.css"
+@import "./navigation.css"
 
 @custom-variant dark (&:is(.dark *));
 

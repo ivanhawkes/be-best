@@ -10,14 +10,11 @@
       <div class="{{ $colSpanIndent }}"></div>
     {{ end }}
 
-
     <a
       class="{{ $colSpanMain }} justify-start hover:bg-primary-700"
       href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-      <li class="inline-flex items-center">
         {{ .Params.icon | safeHTML }}
         <span>{{- $element.Name -}}</span>
-      </li>
     </a>
 
     {{ if $element.Children }}
