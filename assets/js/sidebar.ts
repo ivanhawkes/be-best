@@ -9,7 +9,6 @@ export function toggleSidebar() {
 }
 
 export function toggleSubMenu(button) {
-
   if (!button.nextElementSibling.classList.contains('show')) {
     closeAllSubMenus()
   }

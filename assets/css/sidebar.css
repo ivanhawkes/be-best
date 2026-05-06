@@ -66,6 +66,8 @@
 #sidebar svg{
   flex-shrink: 0;
   fill: var(--primary-foreground);
+  width: 24px;
+  height: 24px;
 }
 
 #sidebar a span, #sidebar .dropdown-btn span{
