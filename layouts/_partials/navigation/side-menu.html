@@ -1,4 +1,6 @@
-<nav id="nav-sidebar" class="navigation sidebar flex flex-col">
+<nav
+  id="nav-sidebar"
+  class="navigation sidebar flex flex-col items-center justify-start">
   <ul>
     {{ partial "/navigation/recursive-nav.html" (dict "context" . "menu" $.Site.Menus.main "depth" 0) }}
     {{ partial "/navigation/recursive-nav.html" (dict "context" . "menu" $.Site.Menus.development "depth" 0) }}

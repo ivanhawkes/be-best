@@ -1,15 +1,14 @@
 /* Style the pagination control set. */
 
 .pagination {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    font-size: 1.2rem;
-;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  font-size: 1.2rem;
 }
 
 .pagination li {
-    display: inline-block;
-    padding: 0 0.33rem;
+  display: inline-block;
+  padding: 0 0.33rem;
 }

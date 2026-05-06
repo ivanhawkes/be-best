@@ -1,15 +1,18 @@
 {{ $depth := add .depth  1 }}
-{{ $indent := strings.Repeat $depth "--" }} 
 
-{{- range $index, $element := .menu -}}
-  <li>
-    <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
-      {{ .Params.icon | safeHTML }}
-      <span>{{- (add $indent $element.Name) -}}</span>
-    </a>
-  </li>
+{{ if lt $depth 3 }}
+  {{- range $index, $element := .menu -}}
+    <li>
+      <a href="{{- $.Site.BaseURL -}}{{- .URL -}}">
+        <div class="flex flex-row">
+          {{ .Params.icon | safeHTML }}
+          <span>{{- $element.Name -}}</span>
+        </div>
+      </a>
+    </li>
 
-  {{ if $element.Children }}
-    {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}
+    {{ if $element.Children }}
+      {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}
+    {{ end }}
   {{ end }}
-{{- end -}}
+{{ end }}
