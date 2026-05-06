@@ -2,7 +2,7 @@
   {{ partial "page/content.html" . }}
 
   <div
-    class="grid grid-cols-1 gap-4 space-y-4 space-x-4 sm:grid-cols-2 md:grid-cols-3">
+    class="container grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
     {{ range hugo.Data.profile.person }}
       {{- partial "/images/featured-image" . -}}
       {{- partial "/profiles/card.html" . -}}

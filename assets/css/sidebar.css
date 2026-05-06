@@ -33,7 +33,7 @@ main p{
   border: 1px solid var(--color-border-sidebar);
   border-radius: 1em;
   margin-bottom: 20px;
-  padding: min(3em, 15%);
+  padding: min(2em, 10%);
 
   h2, p { margin-top: 1em }
 }
