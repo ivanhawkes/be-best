@@ -1,9 +1,18 @@
 {{ $depth := add .depth  1 }}
+{{ $spanIndent := sub $depth 1 }}
+{{ $spanMain := sub 12 $depth }}
+{{ $colSpanIndent := print "col-span-" $spanIndent }}
+{{ $colSpanMain := print "col-span-" $spanMain }}
 
 {{ if lt $depth 3 }}
   {{- range $index, $element := .menu -}}
+    {{ if gt $depth 1 }}
+      <div class="{{ $colSpanIndent }}"></div>
+    {{ end }}
+
+
     <a
-      class="col-span-11 justify-start hover:bg-primary-700"
+      class="{{ $colSpanMain }} justify-start hover:bg-primary-700"
       href="{{- $.Site.BaseURL -}}{{- .URL -}}">
       <li class="inline-flex items-center">
         {{ .Params.icon | safeHTML }}
@@ -11,10 +20,11 @@
       </li>
     </a>
 
-    {{/* <p class="justify-end items-center">X</p> */}}
-
     {{ if $element.Children }}
+      <div class="col-span-1">⌄</div>
       {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}
+    {{ else }}
+      <div class="col-span-1"></div>
     {{ end }}
   {{ end }}
 {{ end }}
