@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-css": "npx tailwindcss -i assets/css/main.css -o public/css/main.css --watch"
+    "build-css": "pnpm dlx @tailwindcss/cli -i assets/css/main.css -o public/css/main.css --watch"
   },
   "devDependencies": {
     "@eslint/css": "^1.1.0",
