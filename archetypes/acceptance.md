@@ -1,10 +1,10 @@
 ---
-type: "kanban"
+type: 'kanban'
 title: "{{ replace .Name "-" " " | title }}"
-description: "No Description"
+description: 'Limit to 50 characters'
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
-lastmod:
-author: ""
+lastmod: null
+author: null
 categories: null
 tags: null
 params:
@@ -12,7 +12,7 @@ params:
   stage: design
   status: pending
   completed: null
-  due:
+  due: null
   percent: 0
   estimatedtime: 1
   actualtime: 0
@@ -21,6 +21,7 @@ params:
   references: null
 ---
 
-Please provide a brief summary of the task.
+A brief description. Limit to 100 characters or less.
 
 <!--more-->
+
