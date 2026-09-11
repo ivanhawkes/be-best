@@ -32,8 +32,8 @@ assumptions.
 
 **Goals**
 
-- Steps
+    - Steps
 
 **Acceptance Criteria**
 
-- Criteria
+    - Criteria
