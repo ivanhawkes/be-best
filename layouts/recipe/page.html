@@ -7,7 +7,15 @@
 
   {{- partial "/navigation/next-prev-small.html" . -}}
 
-  {{ partial "page/content.html" . }}
+  <div class="flex flex-row gap-12">
+    <div>
+      {{- partial "/recipes/ingredients.html" . -}}
+    </div>
+
+    <div>
+      {{ partial "/page/content.html" . }}
+    </div>
+  </div>
 
   {{- partial "/navigation/related.html" . -}}
 {{ end }}

@@ -1,0 +1,32 @@
+{{/* Find the ingredients.yaml file in the current page bundle */}}
+{{ $ingredientsResource := .Resources.GetMatch "ingredients.yaml" }}
+
+{{ with $ingredientsResource }}
+  {{/* Unmarshal the YAML content into a Hugo variable */}}
+  {{ $data := . | transform.Unmarshal }}
+
+  {{ range $data }}
+    {{ range . }}
+      <p class="font-bold">{{ .dish }}</p>
+
+      {{/* Loop through the ingredients list */}}
+      {{ if .ingredients }}
+        <table class="ingredients-table">
+          <tbody>
+            {{ range .ingredients }}
+              <tr class="odd:bg-gray-100 even:bg-gray-200">
+                <td>{{ .quantity }}</td>
+                <td>{{ .measure }}</td>
+                <td>{{ .ingredient }}</td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      {{ else }}
+        <p>The ingredients file is empty or formatted incorrectly.</p>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <p>No ingredients.yaml file found for this page.</p>
+{{ end }}
