@@ -1,7 +1,4 @@
 @import "tailwindcss";
-/* @import "tw-animate-css"; */
-/* @import "shadcn/tailwind.css"; */
-/* @import "@fontsource-variable/source-sans-3"; */
 @plugin "@tailwindcss/typography";
 
 @source "hugo_stats.json";
@@ -12,8 +9,8 @@
 @import "./table.css";
 @import "./brand.css";
 @import "./prose-overrides.css";
-@import "./footer.css"
-@import "./navigation.css"
+@import "./footer.css";
+@import "./navigation.css";
 
 @custom-variant dark (&:is(.dark *));
 
