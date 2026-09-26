@@ -30,6 +30,10 @@ assumptions.
 
 # {{ replace .Name "-" " " | title }}
 
-- Goals
-- Steps
-- Acceptance Criteria
+**Goals**
+
+    - Steps
+
+**Acceptance Criteria**
+
+    - Criteria

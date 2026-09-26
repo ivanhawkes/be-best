@@ -25,3 +25,15 @@ A brief description. Limit to 100 characters or less.
 
 <!--more-->
 
+A complete description of the feature, including any constraints and
+assumptions.
+
+# {{ replace .Name "-" " " | title }}
+
+**Goals**
+
+  - Steps
+
+**Acceptance Criteria**
+
+  - Criteria
