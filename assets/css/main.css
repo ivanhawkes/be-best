@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@source "hugo_stats.json";
 @import "./syntax-highlight.css";
 @import "./custom.css";
 @import "./dark-mode.css";
@@ -11,6 +10,8 @@
 @import "./prose-overrides.css";
 @import "./footer.css";
 @import "./navigation.css";
+
+@source "hugo_stats.json";
 
 @custom-variant dark (&:is(.dark *));
 
