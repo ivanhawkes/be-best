@@ -24,4 +24,3 @@ params:
 A brief description. Limit to 100 characters or less.
 
 <!--more-->
-

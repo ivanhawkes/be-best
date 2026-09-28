@@ -1,17 +1,17 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
-@import "./syntax-highlight.css";
-@import "./custom.css";
-@import "./dark-mode.css";
-@import "./sidebar.css";
-@import "./table.css";
-@import "./brand.css";
-@import "./prose-overrides.css";
-@import "./footer.css";
-@import "./navigation.css";
+@import './syntax-highlight.css';
+@import './custom.css';
+@import './dark-mode.css';
+@import './sidebar.css';
+@import './table.css';
+@import './brand.css';
+@import './prose-overrides.css';
+@import './footer.css';
+@import './navigation.css';
 
-@source "hugo_stats.json";
+@source 'hugo_stats.json';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -128,16 +128,17 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
-  button:not(:disabled), [role="button"]:not(:disabled) {
-    cursor: pointer;
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
     }
-  html {
-    @apply font-sans;
+    html {
+        @apply font-sans;
     }
 }

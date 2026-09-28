@@ -1,3 +1,2 @@
 # Ignore generated content.
-public/
-pnpm-lock.yaml
+layouts/

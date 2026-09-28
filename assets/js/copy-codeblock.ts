@@ -4,95 +4,95 @@
 // will inform the user the copy has occurred.
 
 export async function copyCodeToClipboard(
-  eleCodeblock: HTMLElement,
-  eleButton: HTMLElement
+    eleCodeblock: HTMLElement,
+    eleButton: HTMLElement
 ) {
-  if (eleCodeblock != null && eleButton != null) {
-    let eleInner: HTMLElement | null
+    if (eleCodeblock != null && eleButton != null) {
+        let eleInner: HTMLElement | null;
 
-    // Query is slightly different if the code block is inside a table.
-    const isTables = eleCodeblock.querySelector<HTMLElement>('table')
-    if (isTables) {
-      eleInner = eleCodeblock.querySelector<HTMLElement>(
-        '.lntd:last-child code'
-      )
+        // Query is slightly different if the code block is inside a table.
+        const isTables = eleCodeblock.querySelector<HTMLElement>('table');
+        if (isTables) {
+            eleInner = eleCodeblock.querySelector<HTMLElement>(
+                '.lntd:last-child code'
+            );
+        } else {
+            eleInner = eleCodeblock.querySelector<HTMLElement>('code');
+        }
+
+        // Make sure we found something.
+        if (eleInner != null) {
+            // We're just going to concatenate the text content of all the
+            // child elements of the code block.
+            let codeToCopy: string = '';
+            for (const child of eleInner.children) {
+                codeToCopy = codeToCopy + (child.textContent || '');
+            }
+
+            // Finally, write the code to the clipboard and update the button text.
+            writeToClipboard(codeToCopy, eleButton);
+        } else {
+            console.error(
+                "Failed to copy the code block. Couldn't find the inner code element."
+            );
+        }
     } else {
-      eleInner = eleCodeblock.querySelector<HTMLElement>('code')
+        console.error(
+            "Failed to copy the code block. One or more elements weren't found by their Id's."
+        );
     }
-
-    // Make sure we found something.
-    if (eleInner != null) {
-      // We're just going to concatenate the text content of all the
-      // child elements of the code block.
-      let codeToCopy: string = ''
-      for (const child of eleInner.children) {
-        codeToCopy = codeToCopy + (child.textContent || '')
-      }
-
-      // Finally, write the code to the clipboard and update the button text.
-      writeToClipboard(codeToCopy, eleButton)
-    } else {
-      console.error(
-        "Failed to copy the code block. Couldn't find the inner code element."
-      )
-    }
-  } else {
-    console.error(
-      "Failed to copy the code block. One or more elements weren't found by their Id's."
-    )
-  }
 }
 
 function writeToClipboard(newClip: string, eleButton: HTMLElement) {
-  navigator.clipboard.writeText(newClip).then(
-    () => {
-      // Clipboard successfully set.
-      codeCopySuccessful(eleButton)
-    },
-    () => {
-      // Clipboard write failed.
-      console.error('Failed to write to the clipboard.')
-    }
-  )
+    navigator.clipboard.writeText(newClip).then(
+        () => {
+            // Clipboard successfully set.
+            codeCopySuccessful(eleButton);
+        },
+        () => {
+            // Clipboard write failed.
+            console.error('Failed to write to the clipboard.');
+        }
+    );
 }
 
 // Interaction to let them know we copied the code for them.
 // TODO: How about an animation?
 
 function codeCopySuccessful(eleButton: HTMLElement) {
-  eleButton.blur()
-  eleButton.innerText = 'Copied!'
-  setTimeout(function () {
-    eleButton.innerText = 'Copy'
-  }, 2000)
+    eleButton.blur();
+    eleButton.innerText = 'Copied!';
+    setTimeout(function () {
+        eleButton.innerText = 'Copy';
+    }, 2000);
 }
 
 function wireUpCopyButtons(block: HTMLElement) {
-  // Find the codeblock element within the code block
-  const eleCodeblock = block.querySelector<HTMLElement>('.code')
-  if (!eleCodeblock) {
-    console.error('Copy button not found in code block')
+    // Find the codeblock element within the code block
+    const eleCodeblock = block.querySelector<HTMLElement>('.code');
+    if (!eleCodeblock) {
+        console.error('Copy button not found in code block');
 
-    return
-  }
+        return;
+    }
 
-  // Find the button element within the code block
-  const eleButton = block.querySelector<HTMLElement>('.copy-button')
-  if (!eleButton) {
-    console.error('Copy button not found in code block')
+    // Find the button element within the code block
+    const eleButton = block.querySelector<HTMLElement>('.copy-button');
+    if (!eleButton) {
+        console.error('Copy button not found in code block');
 
-    return
-  }
+        return;
+    }
 
-  eleButton.addEventListener('click', () => {
-    // Call the copy function with the block's ID and the button element
-    copyCodeToClipboard(eleCodeblock, eleButton)
-  })
+    eleButton.addEventListener('click', () => {
+        // Call the copy function with the block's ID and the button element
+        copyCodeToClipboard(eleCodeblock, eleButton);
+    });
 }
 
-const codeblocks = document.querySelectorAll<HTMLElement>('.codeblock')
+const codeblocks = document.querySelectorAll<HTMLElement>('.codeblock');
 if (codeblocks.length > 0) {
-  codeblocks.forEach((block) => {
-    wireUpCopyButtons(block)
-  })
+    codeblocks.forEach((block) => {
+        wireUpCopyButtons(block);
+    });
 }

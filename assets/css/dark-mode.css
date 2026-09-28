@@ -1,11 +1,11 @@
 #theme-switch svg:last-child {
-  display: none;
+    display: none;
 }
 
 .dark #theme-switch svg:first-child {
-  display: none;
+    display: none;
 }
 
 .dark #theme-switch svg:last-child {
-  display: block;
+    display: block;
 }
