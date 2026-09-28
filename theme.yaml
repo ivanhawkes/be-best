@@ -2,7 +2,7 @@ name: Be Best
 license: MIT
 licenselink: LICENSE
 description: Blogging with some project planning features.
-homepage: http://blog.ivanhawkes.dev/
+homepage: https://blog.ivanhawkes.dev/
 tags:
   - blog
   - responsive
@@ -12,7 +12,7 @@ tags:
   - personal
 features:
   - darkmode
-min_version: 0.160.1
+min_version: 0.166.0
 author:
   name: Ivan Hawkes
-  homepage: http://blog.ivanhawkes.dev/
+  homepage: https://blog.ivanhawkes.dev/
