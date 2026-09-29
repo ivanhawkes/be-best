@@ -1,7 +1,6 @@
 ---
 type: "post"
 title: "{{ replace .Name "-" " " | title }}"
-description: null
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 author: "Ivan Hawkes"
 ---
