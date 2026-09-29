@@ -2,7 +2,6 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: "recipe"
-description: null
 imagecaption: null
 author: "Ivan Hawkes"
 ---
