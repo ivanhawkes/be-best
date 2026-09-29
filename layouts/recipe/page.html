@@ -9,6 +9,24 @@
 
   <div class="flex flex-row gap-x-12 gap-y-4">
     <div class="">
+
+      <span style="font-style: italic; font-weight: bold;">Meta</span>
+
+      <table class="ingredients-table border-collapse">
+        <tbody class="divide-y divide-black">
+          <tr class="odd:bg-gray-100 even:bg-gray-200">
+            <td>Cuisine: {{ .Params.cuisine }}</td>
+          </tr>
+          <tr class="odd:bg-gray-100 even:bg-gray-200">
+            <td>Portions: {{ .Params.portions }}</td>
+          </tr>
+
+          {{ partial "recipes/recipe-times.html" . }}
+
+        </tbody>
+      </table>
+
+
       {{- partial "/recipes/ingredients.html" . -}}
     </div>
 
