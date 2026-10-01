@@ -1,8 +1,8 @@
 ---
-type: post
+kind: post
 title: Dashboard
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
-type: ""
+kind: ""
 description: A dashboard for managing development of this blog.
 menus:
   main:

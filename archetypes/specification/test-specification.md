@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
-type: "specification"
+kind: "specification"
 description: "Test Specification"
 categories: ["Documentation"]
 author: "Ivan Hawkes"
