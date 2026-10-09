@@ -1,0 +1,58 @@
+{{/* prettier-ignore-start */}}
+{{/*
+Renders a YAML data file as a highlighted code block, producing the same
+output as the render-codeblock.html markup renderer.
+
+@param {string} [name] The name of a data file in the data directory (e.g. "about" reads "data/about.yaml").
+@param {string} [file] A path to a YAML file, relative to the project root. Takes precedence over name.
+@param {string} [lang] Override the highlight language (defaults to "yaml" from the file extension).
+@param {bool} [copy=true] Whether to display a copy-to-clipboard button.
+@param {bool} [details=false] Whether to wrap the highlighted code block within a details element.
+@param {bool} [open=false] Whether to initially display the content of the details element.
+@param {string} [summary=Details] The content of the details summary element rendered from Markdown to HTML.
+@param {bool} [trim=true] Whether to trim leading and trailing whitespace from the file contents.
+
+@returns {template.HTML}
+
+@example
+
+    {{< yaml name="about" >}}
+
+    {{< yaml name="profile" file="data/profile.yaml" details=true open=true summary="Profile data" >}}
+*/}}
+{{/* prettier-ignore-end */}}
+{{- $file := .Get "file" }}
+{{- if not $file }}
+  {{- $name := .Get "name" }}
+  {{- if $name }}
+    {{- $file = printf "data/%s.yaml" $name }}
+  {{- end }}
+{{- end }}
+
+{{- if $file }}
+  {{- $res := resources.Get $file }}
+  {{- if $res }}
+    {{- $ext := strings.TrimPrefix "." (path.Ext $file) }}
+    {{- $lang := or (.Get "lang") $ext "yaml" }}
+    {{- $raw := printf "%s%s" .RelPermalink $file }}
+    {{- $id := strings.ReplaceAll (strings.ReplaceAll $raw "/" "-") "." "-" }}
+
+    {{- partial "codeblock.html" (dict
+      "content" $res.Content
+      "lang" $lang
+      "copy" (.Get "copy")
+      "file" $file
+      "details" (.Get "details")
+      "open" (.Get "open")
+      "summary" (or (.Get "summary") "Details" | .RenderString)
+      "trim" (.Get "trim")
+      "id" (printf "codeblock-%s" $id)
+      "buttonId" (printf "codeblock-button-%s" $id)
+      "options" dict
+    ) }}
+  {{- else }}
+    <p class="text-red-600">yaml shortcode: could not read {{ $file }}</p>
+  {{- end }}
+{{- else }}
+  <p class="text-red-600">yaml shortcode requires a name or file parameter</p>
+{{- end }}
