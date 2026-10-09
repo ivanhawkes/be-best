@@ -1,10 +1,9 @@
 {{/* prettier-ignore-start */}}
 {{/*
-Renders a YAML data file as a highlighted code block, producing the same
-output as the render-codeblock.html markup renderer.
+Renders a data file as a highlighted code block, producing the same output as the
+render-codeblock.html markup renderer.
 
-@param {string} [name] The name of a data file in the data directory (e.g. "about" reads "data/about.yaml").
-@param {string} [file] A path to a YAML file, relative to the project root. Takes precedence over name.
+@param {string} [file] A path to a file, relative to /data.
 @param {string} [lang] Override the highlight language (defaults to "yaml" from the file extension).
 @param {bool} [copy=true] Whether to display a copy-to-clipboard button.
 @param {bool} [details=false] Whether to wrap the highlighted code block within a details element.
@@ -16,26 +15,21 @@ output as the render-codeblock.html markup renderer.
 
 @example
 
-    {{< yaml name="about" >}}
+{{< yaml file="profile.yaml" details=true open=true summary="Profile data" >}}
 
-    {{< yaml name="profile" file="data/profile.yaml" details=true open=true summary="Profile data" >}}
-*/}}
 {{/* prettier-ignore-end */}}
-{{- $file := .Get "file" }}
-{{- if not $file }}
-  {{- $name := .Get "name" }}
-  {{- if $name }}
-    {{- $file = printf "data/%s.yaml" $name }}
-  {{- end }}
-{{- end }}
 
-{{- if $file }}
-  {{- $res := resources.Get $file }}
+{{/* Remove leading/trailing whitespace/newlines from the path */}}
+{{- $file := .Get "file" -}}
+{{- $cleanFile := trim $file " \n\r" -}}
+{{- $filePath := printf "%s" $cleanFile -}}
+
+{{- if $filePath }}
+  {{- $res := resources.Get $filePath }}
   {{- if $res }}
     {{- $ext := strings.TrimPrefix "." (path.Ext $file) }}
     {{- $lang := or (.Get "lang") $ext "yaml" }}
-    {{- $raw := printf "%s%s" .RelPermalink $file }}
-    {{- $id := strings.ReplaceAll (strings.ReplaceAll $raw "/" "-") "." "-" }}
+    {{- $id := $file | urlquery -}}
 
     {{- partial "codeblock.html" (dict
       "content" $res.Content
@@ -44,15 +38,15 @@ output as the render-codeblock.html markup renderer.
       "file" $file
       "details" (.Get "details")
       "open" (.Get "open")
-      "summary" (or (.Get "summary") "Details" | .RenderString)
+      "summary" (or (.Get "summary") "Details" | .Page.RenderString)
       "trim" (.Get "trim")
       "id" (printf "codeblock-%s" $id)
       "buttonId" (printf "codeblock-button-%s" $id)
       "options" dict
     ) }}
   {{- else }}
-    <p class="text-red-600">yaml shortcode: could not read {{ $file }}</p>
+    <p class="text-red-600">print-code shortcode: could not read {{ $filePath }}</p>
   {{- end }}
 {{- else }}
-  <p class="text-red-600">yaml shortcode requires a name or file parameter</p>
+  <p class="text-red-600">print-code shortcode: requires a file name (must be accessible from /assets folder)</p>
 {{- end }}
