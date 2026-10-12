@@ -1,6 +1,9 @@
 {{/* Find the ingredients.yaml file in the current page bundle */}}
 {{ $ingredientsResource := .Resources.GetMatch "ingredients.yaml" }}
 
+<p>ingredient lists</p>
+
+
 {{ with $ingredientsResource }}
   {{/* Unmarshal the YAML content into a Hugo variable */}}
   {{ $data := . | transform.Unmarshal }}

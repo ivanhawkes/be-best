@@ -1,7 +1,7 @@
 <ul>
     {{ $prefix := .Params.prefix }}
     {{ $filter := printf ".*/(%s-.*)." .Params.prefix }}
-    {{ $pages := where .Site.RegularPages "Type" "kanban" }}
+    {{ $pages := where .Site.RegularPages "kind" "kanban" }}
     {{ $kanban := where $pages "Path" "like" $filter }}
     {{ $sorted := sort $kanban "Path" "asc" }}
 
