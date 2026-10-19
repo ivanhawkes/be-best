@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
 type: specification
-description: ""
+description: "Ideation"
 categories: ["Documentation", "Concept", "Idea"]
 author: "Ivan Hawkes"
 ---
@@ -14,7 +14,7 @@ further developed into a project.
 
 ## Logline
 
-Describe in as single sentance the purpose of this project.
+Describe in as single sentence the purpose of this project.
 
 > Your hopes and dreams go here.
 

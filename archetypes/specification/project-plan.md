@@ -9,12 +9,4 @@ author: "Ivan Hawkes"
 
 # Project Plan
 
-Some text.
-
-## Less important.
-
-And more.
-
-### Least important.
-
-Try not to nest more than that.
+A plan on how to implement, test and deploy this project.
