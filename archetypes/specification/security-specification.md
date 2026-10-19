@@ -9,15 +9,12 @@ author: "Ivan Hawkes"
 
 # Purpose
 
-The purpose of this document is to state quite clearly the idea that will be
-further developed into a project.
-
-## Logline
-
-Describe in as single sentance the purpose of this project.
-
-> Your hopes and dreams go here.
-
-## Expand the Idea
-
-Describe it in more detail.
+The purpose of a Security Specification is to define the security requirements,
+controls, and measures necessary to protect the solution, its data, and its
+users from unauthorised access, misuse, and other security threats. It documents
+aspects such as authentication, authorisation, access controls, data protection,
+encryption, audit logging, privacy, and compliance obligations, providing a
+clear reference for implementing and verifying security throughout the solution.
+It complements the requirements, functional, technical, system, design, and
+testing specifications by ensuring security is addressed consistently and
+appropriately across the solution.
