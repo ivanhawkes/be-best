@@ -2,6 +2,7 @@
   {{ range (where hugo.Data.profile.person "profile" .Params.profile) }}
     <div>
       {{- partial "/images/featured-image" . -}}
+      {{ $description := .Description | default .Site.Params.description }}
 
       <div>
         <img src="{{ .avatar }}" alt="Avatar of {{ .name }}" />
@@ -13,7 +14,8 @@
 
         <div>{{- partial "/social-media/social-media-small.html" . -}}</div>
 
-        <div>&quot;{{ .description }}&quot;</div>
+        
+        <div>&quot;{{ $description }}&quot;</div>
       </div>
     </div>
   {{ end }}

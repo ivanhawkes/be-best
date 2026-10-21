@@ -1,3 +1,5 @@
+{{ $description := .Description | default .Site.Params.description }}
+
 <div class="w-full rounded-md border bg-card p-2">
   <a href="{{ .Permalink }}">
     {{- partial "/images/featured-image.html" . -}}
@@ -9,7 +11,7 @@
     </div>
     <div>{{ .position }}</div>
     <div class="text-sm">
-      {{ .description }}
+      {{ $description }}
     </div>
   </div>
 </div>

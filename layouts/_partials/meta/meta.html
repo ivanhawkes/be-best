@@ -3,13 +3,15 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 {{ end }}
 
+{{ $description := .Description | default .Site.Params.description }}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ .Site.Params.description }}">
+<meta name="description" content="{{ $description }}">
 <meta
   property="og:title"
   content="{{ .Site.Title }}{{ with .Title }}| {{ . }}{{ end }}">
-<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{ .Site.Params.socialImage }}">
@@ -17,6 +19,6 @@
 <meta
   name="twitter:title"
   content="{{ .Site.Title }}{{ with .Title }}| {{ . }}{{ end }}">
-<meta name="twitter:description" content="{{ .Site.Params.description }}">
+<meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ .Site.Params.socialImage }}">
 <meta name="twitter:site" content="{{ .Site.Params.twitterHandle }}">
