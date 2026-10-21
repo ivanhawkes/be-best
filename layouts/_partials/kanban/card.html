@@ -54,33 +54,6 @@
       {{ .Params.priority }}
     </div>
 
-    {{ with .Params.estimatedtime }}
-      <div>
-        Estimated Time:
-        {{- . -}}
-      </div>
-    {{ end }}
-
-    {{ with .Params.actualtime }}
-      <div>
-        Actual Time:
-        {{- . -}}
-      </div>
-    {{ end }}
-
-    {{ if gt .Params.percent 0 }}
-      <div>
-        <p>Completion:</p>
-        <progress
-          class="mt-3 h-6 w-full border border-foreground bg-accent font-bold"
-          value="{{ .Params.percent }}"
-          min="0"
-          max="100">
-          {{ .Params.percent }}%
-        </progress>
-      </div>
-    {{ end }}
-
     {{ with .Params.dependencies }}
       <div class="border-t border-foreground">
         Dependencies:

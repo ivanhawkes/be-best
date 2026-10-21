@@ -12,9 +12,6 @@ params:
   status: pending
   completed: null
   due: null
-  percent: 0
-  estimatedtime: 1
-  actualtime: 0
   priority: 350
   dependencies: null
   references: null
