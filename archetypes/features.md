@@ -9,7 +9,7 @@ tags: null
 params:
   sprint: null
   stage: design
-  status: pending
+  status: to-do
   completed: null
   due: null
   priority: 350
