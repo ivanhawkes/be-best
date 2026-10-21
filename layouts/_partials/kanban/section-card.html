@@ -1,8 +1,11 @@
 {{ $bannerColour := "bg-primary" }}
-{{ $due := time .Params.due }}
-{{ if and (not .Params.completed) .Params.due }}
-  {{ if gt time.Now $due }}
-    {{ $bannerColour = "bg-destructive" }}
+
+{{ if .Params.due }}
+  {{ $due := time .Params.due }}
+  {{ if and (not .Params.completed) .Params.due }}
+    {{ if gt time.Now $due }}
+      {{ $bannerColour = "bg-destructive" }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
