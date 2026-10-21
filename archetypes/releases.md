@@ -6,7 +6,7 @@ author: null
 categories: null
 tags: null
 params:
-  completed: null
+  completionDate: null
   due: null
   dependencies: null
   references: null

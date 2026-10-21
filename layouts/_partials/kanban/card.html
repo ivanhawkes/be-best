@@ -2,7 +2,7 @@
 
 {{ if .Params.due }}
   {{ $due := time .Params.due }}
-  {{ if and (not .Params.completed) .Params.due }}
+  {{ if and (not .Params.completionDate) .Params.due }}
     {{ if gt time.Now $due }}
       {{ $bannerColour = "bg-destructive" }}
     {{ end }}
