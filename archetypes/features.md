@@ -2,7 +2,6 @@
 title: "{{ replace .Name "-" " " | title }}"
 description: 'Limit to 50 characters'
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
-lastmod: null
 author: null
 categories: null
 tags: null
