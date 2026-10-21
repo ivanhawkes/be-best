@@ -50,8 +50,7 @@
     {{ end }}
 
     <div class="flex items-center border-t border-foreground">
-      Priority:
-      {{ .Params.priority }}
+          {{ .Params.priority }}
     </div>
 
     {{ with .Params.dependencies }}
@@ -66,7 +65,7 @@
 
     {{ with .Params.references }}
       <div>
-        References:
+      references:
         {{ range $index, $value := . }}
            {{ if $index }} | {{ end }}
            {{- $value -}}

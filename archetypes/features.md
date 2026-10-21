@@ -7,12 +7,8 @@ author: null
 categories: null
 tags: null
 params:
-  sprint: null
-  stage: design
-  status: to-do
   completed: null
   due: null
-  priority: 350
   dependencies: null
   references: null
 ---
