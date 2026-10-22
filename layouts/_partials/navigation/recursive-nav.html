@@ -19,9 +19,7 @@
         </button>
         
         <ul class="sub-menu">
-          <div>
-            {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}
-          </div>
+          {{ partial "/navigation/recursive-nav.html" (dict "context" $.context "menu" $element.Children "depth" $depth) }}
         </ul>
       </li>
     {{ else }}

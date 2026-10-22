@@ -8,7 +8,7 @@
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </div>
     <div class="line-clamp-4 text-sm">
-      {{ .Summary }}
+      {{ with .Description }}{{ . }}{{ else }}{{ .Summary | transform.Plainify }}{{ end }}
     </div>
   </div>
 </div>

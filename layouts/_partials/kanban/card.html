@@ -17,7 +17,7 @@
   </div>
   <div class="m-3">
     <div class="border-b border-foreground text-sm">
-      {{ .Summary }}
+      {{ with .Description }}{{ . }}{{ else }}{{ .Summary | transform.Plainify }}{{ end }}
     </div>
 
     <div>

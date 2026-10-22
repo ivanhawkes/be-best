@@ -10,7 +10,7 @@
       {{- range .THead }}
         <tr>
           {{- range . }}
-            <th {{- with .Alignment }}class="!text-{{ . }}"{{- end }}>
+            <th{{ with .Alignment }} class="!text-{{ . }}"{{ end }}>
               {{- .Text -}}
             </th>
           {{- end }}
@@ -21,7 +21,7 @@
       {{- range .TBody }}
         <tr class="odd:bg-gray-600 even:bg-gray-500">
           {{- range . }}
-            <td {{- with .Alignment }}class="!text-{{ . }}"{{- end }}>
+            <td{{ with .Alignment }} class="!text-{{ . }}"{{ end }}>
               {{- .Text -}}
             </td>
           {{- end }}

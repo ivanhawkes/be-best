@@ -53,6 +53,6 @@
     </div>
   {{- end -}}
 {{- else -}}
-  <p class="ctr legal"><em>Image unavailable.</em></p>
+  <span class="ctr legal"><em>Image unavailable.</em></span>
 {{- end -}}
 {{- with $caption -}}<p class="img-caption">{{ $caption | $.Page.RenderString }}</p>{{- end }}
