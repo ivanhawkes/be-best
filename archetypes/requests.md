@@ -2,9 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 description: 'Limit to 50 characters'
 date: '{{ time.Now.Format $.Site.Params.dateFormat }}'
-author: null
-categories: null
-tags: null
+author: Ivan Hawkes
 params:
   completionDate: null
   due: null
@@ -12,7 +10,7 @@ params:
   references: null
 ---
 
-A brief description. Limit to 100 characters or less.
+A brief description. Limit to 50 characters.
 
 <!--more-->
 
