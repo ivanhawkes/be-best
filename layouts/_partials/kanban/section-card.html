@@ -11,18 +11,14 @@
 
 
 <div
-  class="justify-evenly rounded-none border border-foreground bg-card text-sm">
+  class="justify-evenly rounded-md border-2 border-primary-300 border-foreground bg-card text-sm p-2">
   <div
-    class="{{ $bannerColour }} flex h-8 items-center justify-center bg-accent text-base font-bold">
+    class="{{ $bannerColour }} flex h-8 items-center justify-center bg-accent text-base font-bold p-2">
     <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
   </div>
 
   <div class="m-3">
-    <div class="line-clamp-2 font-bold">
-      {{ with .Description }}{{ . }}{{ else }}{{ .Summary | transform.Plainify }}{{ end }}
-    </div>
-
-    <div class="line-clamp-3 text-sm">
+    <div class="line-clamp-3">
       {{ with .Description }}{{ . }}{{ else }}{{ .Summary | transform.Plainify }}{{ end }}
     </div>
 
