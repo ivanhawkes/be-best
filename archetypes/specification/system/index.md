@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# System Specification
-
 The purpose of a system specification is to define the overall system, including
 its components, structure, interfaces, dependencies, and interactions, and how
 these elements work together to deliver the intended solution. It establishes

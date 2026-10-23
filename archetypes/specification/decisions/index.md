@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Decision Record
-
 A record of each of the important decisions that were made in the process of
 designing and implementing this project.
 

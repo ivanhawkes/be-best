@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Purpose
-
 The purpose of a Security Specification is to define the security requirements,
 controls, and measures necessary to protect the solution, its data, and its
 users from unauthorised access, misuse, and other security threats. It documents

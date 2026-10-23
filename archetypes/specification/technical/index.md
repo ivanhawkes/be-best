@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Technical Specification
-
 The purpose of a technical specification is to define the technical approach,
 architecture, technologies, infrastructure, interfaces, and implementation
 constraints required to deliver the solution. It translates the requirements and

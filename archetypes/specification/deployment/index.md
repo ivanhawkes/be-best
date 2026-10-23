@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Deployment and Migration Specification
-
 The purpose of a Deployment and Migration Specification is to define the
 processes, procedures, and activities required to transition the solution into
 its target environment and, where applicable, migrate existing data to the new

@@ -30,7 +30,7 @@
                     {{ $due = time.Format .Site.Params.dateFormatHuman .Params.due }}
                 {{ end }}
 
-                <tr>
+                <tr class="odd:bg-gray-100 even:bg-gray-200">
                     <td><a href="{{ .RelPermalink }}">{{- $basepath -}}</a></td>
                     <td>{{- .Description | truncate 50 -}}</td>
                     <td>{{- $due -}}</td>

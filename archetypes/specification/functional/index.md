@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Functional Specification
-
 The purpose of a functional specification is to translate the requirements
 defined in the requirements specification into a detailed description of the
 solution’s expected functionality and behaviour, while aligning with the

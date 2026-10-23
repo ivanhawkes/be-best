@@ -7,6 +7,4 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Project Plan
-
 A plan on how to implement, test and deploy this project.

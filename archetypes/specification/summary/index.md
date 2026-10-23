@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Project Summary
-
 The purpose of this document is to give a brief and precise summary of the
 status of this project. The status is a "live view" derived from the various
 documents that track the individual goals for the project.

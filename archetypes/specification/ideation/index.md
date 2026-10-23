@@ -7,8 +7,6 @@ categories: ["Documentation", "Concept", "Idea"]
 author: "Ivan Hawkes"
 ---
 
-# Purpose
-
 The purpose of this document is to state quite clearly the idea that will be
 further developed into a project.
 

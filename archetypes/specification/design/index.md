@@ -7,8 +7,6 @@ categories: ["Documentation"]
 author: "Ivan Hawkes"
 ---
 
-# Design Specification
-
 The purpose of a design specification is to describe how the solution will be
 structured and constructed to meet the requirements and functional expectations
 within the defined technical and system constraints. It documents the detailed
