@@ -45,10 +45,6 @@ TODO: Write a shortcode to present this information somehow.
 
 {{< kanban-list-short prefix=ft >}}
 
-### Requests
-
-{{< kanban-list-short prefix=rq >}}
-
 ## Getting Started
 
 ### Scaffold
@@ -61,9 +57,9 @@ TODO: Write a shortcode to present this information somehow.
 
 {{< kanban-list-short prefix=ts >}}
 
-### Bugs
+### Issues
 
-{{< kanban-list-short prefix=bg >}}
+{{< kanban-list-short prefix=is >}}
 
 ### Acceptance
 
