@@ -15,10 +15,6 @@ documents that track the individual goals for the project.
 
 ## Overall Project Progress
 
-### Meta
-
-{{< kanban-list-short prefix=mt >}}
-
 ### Ideation
 
 {{< kanban-list-short prefix=id >}}
